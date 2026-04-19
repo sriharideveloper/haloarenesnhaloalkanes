@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haloalkanes & Haloarenes — Class 12 Viva Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c14;
+    --bg2: #0d1220;
+    --bg3: #111827;
+    --surface: #141d2e;
+    --surface2: #1a2540;
+    --border: #1e2d47;
+    --cyan: #00e5ff;
+    --cyan-dim: rgba(0,229,255,0.15);
+    --amber: #ffb700;
+    --amber-dim: rgba(255,183,0,0.12);
+    --green: #00ff88;
+    --green-dim: rgba(0,255,136,0.12);
+    --red: #ff4757;
+    --red-dim: rgba(255,71,87,0.12);
+    --purple: #a855f7;
+    --purple-dim: rgba(168,85,247,0.12);
+    --text: #e2e8f0;
+    --text-muted: #64748b;
+    --text-dim: #94a3b8;
+    --font-display: 'Unbounded', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'DM Sans', sans-serif;
+    --glow-cyan: 0 0 20px rgba(0,229,255,0.3), 0 0 60px rgba(0,229,255,0.1);
+    --glow-amber: 0 0 20px rgba(255,183,0,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(8,12,20,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .nav-tabs {
+    display: flex; gap: 0.25rem;
+    list-style: none;
+  }
+  .nav-tabs li a {
+    display: block;
+    padding: 0.35rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .nav-tabs li a:hover, .nav-tabs li a.active {
+    color: var(--cyan);
+    background: var(--cyan-dim);
+  }
+  .nav-credit {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    color: var(--text-muted);
+  }
+  .nav-credit a { color: var(--amber); text-decoration: none; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 60px;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridPulse 8s ease-in-out infinite;
+  }
+  @keyframes gridPulse {
+    0%,100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* Floating molecules */
+  .molecule {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 12s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .m1 { width:400px;height:400px;background:rgba(0,229,255,0.05);top:-100px;left:-100px; }
+  .m2 { width:300px;height:300px;background:rgba(255,183,0,0.04);bottom:0;right:0;animation-delay:-4s; }
+  .m3 { width:200px;height:200px;background:rgba(168,85,247,0.06);top:50%;left:60%;animation-delay:-8s; }
+  @keyframes float {
+    0%,100%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(-30px) scale(1.05);}
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative; z-index: 2;
+    max-width: 900px;
+    padding: 2rem;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,229,255,0.3);
+    border-radius: 100px;
+    padding: 0.35rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero h1 span.cyan { color: var(--cyan); }
+  .hero h1 span.amber { color: var(--amber); }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+    font-weight: 300;
+  }
+
+  .hero-stats {
+    display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .stat-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    min-width: 120px;
+  }
+  .stat-pill .num {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--cyan);
+    display: block;
+  }
+  .stat-pill .label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--cyan);
+    color: var(--bg);
+    border: none;
+    border-radius: 8px;
+    padding: 0.85rem 2rem;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--glow-cyan); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 2rem;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,229,255,0.3);
+    border-radius: 6px;
+    padding: 0.25rem 0.6rem;
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
+    margin-bottom: 3rem;
+    opacity: 0.3;
+  }
+
+  /* ===== CONCEPT GRID ===== */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+  .concept-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .concept-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--card-accent, var(--cyan));
+    border-radius: 16px 16px 0 0;
+  }
+  .concept-card:hover {
+    border-color: var(--card-accent, var(--cyan));
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .card-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--cyan-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--card-accent, var(--cyan));
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .card-body {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .card-body strong { color: var(--card-accent, var(--cyan)); font-weight: 600; }
+  .card-body .highlight {
+    background: var(--cyan-dim);
+    border-left: 2px solid var(--cyan);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0 6px 6px 0;
+    margin: 0.75rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+  .card-body ul { padding-left: 1.25rem; margin: 0.5rem 0; }
+  .card-body ul li { margin-bottom: 0.35rem; }
+
+  /* ===== BATTLE TABLE — SN1 vs SN2 ===== */
+  .battle-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .battle-header {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .bh-cell {
+    padding: 1.25rem 1.5rem;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+  .bh-cell.feature { color: var(--text-muted); font-size: 0.65rem; border-right: 1px solid var(--border); }
+  .bh-cell.sn1 { color: var(--amber); background: var(--amber-dim); border-right: 1px solid var(--border); }
+  .bh-cell.sn2 { color: var(--cyan); background: var(--cyan-dim); }
+
+  .battle-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .battle-row:last-child { border-bottom: none; }
+  .battle-row:hover { background: rgba(255,255,255,0.02); }
+  .br-cell {
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .br-cell.feature {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    border-right: 1px solid var(--border);
+    display: flex; align-items: center;
+  }
+  .br-cell.sn1 { color: var(--amber); border-right: 1px solid var(--border); font-size: 0.82rem; }
+  .br-cell.sn2 { color: var(--cyan); font-size: 0.82rem; }
+  .br-cell .emoji { font-size: 1rem; margin-right: 0.4rem; }
+
+  /* ===== FLASHCARD ZONE ===== */
+  .flashcard-controls {
+    display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .filter-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: var(--cyan-dim);
+  }
+  .fc-progress-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    min-width: 120px;
+  }
+  .fc-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--green));
+    border-radius: 2px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+  .fc-counter {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    min-width: 60px;
+  }
+
+  .flashcard-deck {
+    perspective: 1200px;
+    margin-bottom: 2rem;
+  }
+  .flashcard {
+    position: relative;
+    width: 100%; min-height: 340px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    cursor: pointer;
+  }
+  .flashcard.flipped { transform: rotateY(180deg); }
+  .flashcard-face {
+    position: absolute; inset: 0;
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    backface-visibility: hidden;
+  }
+  .fc-front {
+    background: var(--surface);
+    border: 2px solid var(--border);
+  }
+  .fc-back {
+    background: linear-gradient(135deg, var(--bg2), var(--surface2));
+    border: 2px solid var(--cyan);
+    transform: rotateY(180deg);
+    box-shadow: var(--glow-cyan);
+  }
+  .fc-category {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+    display: inline-block;
+    width: fit-content;
+  }
+  .fc-question {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  .fc-hint {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .fc-answer {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .fc-answer strong { color: var(--cyan); }
+  .fc-answer .formula {
+    font-family: var(--font-mono);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+    display: block;
+    color: var(--green);
+  }
+
+  .fc-nav {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .fc-nav-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .fc-nav-btn:hover { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim); }
+  .fc-nav-btn.correct { border-color: var(--green); background: var(--green-dim); color: var(--green); }
+  .fc-nav-btn.incorrect { border-color: var(--red); background: var(--red-dim); color: var(--red); }
+
+  /* ===== QUIZ MODE ===== */
+  .quiz-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+  .quiz-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .quiz-score {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .quiz-score span { color: var(--cyan); font-size: 1.2rem; }
+  .quiz-question {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .quiz-options {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  @media(max-width:600px){ .quiz-options { grid-template-columns: 1fr; } }
+  .quiz-option {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    color: var(--text);
+  }
+  .quiz-option:hover:not(:disabled) { border-color: var(--cyan); background: var(--cyan-dim); }
+  .quiz-option.correct { border-color: var(--green) !important; background: var(--green-dim) !important; color: var(--green) !important; }
+  .quiz-option.wrong { border-color: var(--red) !important; background: var(--red-dim) !important; color: var(--red) !important; }
+  .quiz-option:disabled { cursor: not-allowed; }
+  .quiz-explanation {
+    display: none;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+    animation: slideIn 0.3s ease;
+  }
+  .quiz-explanation.show { display: block; }
+  .quiz-explanation strong { color: var(--cyan); }
+  @keyframes slideIn { from{opacity:0;transform:translateY(-8px);} to{opacity:1;transform:translateY(0);} }
+
+  .quiz-btn {
+    background: var(--cyan);
+    color: var(--bg);
+    border: none;
+    border-radius: 10px;
+    padding: 0.85rem 2rem;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .quiz-btn:hover { transform: translateY(-2px); box-shadow: var(--glow-cyan); }
+  .quiz-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  /* ===== NAME REACTIONS ===== */
+  .reactions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .reaction-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .reaction-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 20%, var(--card-glow, rgba(0,229,255,0.06)), transparent 60%);
+    pointer-events: none;
+  }
+  .reaction-card:hover {
+    border-color: var(--card-accent, var(--cyan));
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .reaction-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--card-accent, var(--cyan));
+    margin-bottom: 0.5rem;
+  }
+  .reaction-type {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .reaction-equation {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--green);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .reaction-memory {
+    background: var(--amber-dim);
+    border: 1px solid rgba(255,183,0,0.2);
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.78rem;
+    color: var(--amber);
+    display: flex; gap: 0.5rem; align-items: flex-start;
+  }
+  .reaction-memory::before { content: '💡'; flex-shrink: 0; }
+
+  /* ===== GIVE REASONS ===== */
+  .reasons-list {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .reason-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .reason-header {
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .reason-header:hover { background: rgba(255,255,255,0.02); }
+  .reason-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .reason-q {
+    font-weight: 500;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    flex: 1;
+  }
+  .reason-toggle {
+    font-size: 1rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--text-muted);
+  }
+  .reason-item.open .reason-toggle { transform: rotate(180deg); color: var(--cyan); }
+  .reason-item.open { border-color: rgba(0,229,255,0.3); }
+  .reason-answer {
+    display: none;
+    padding: 0 1.5rem 1.25rem 3.5rem;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.75;
+    border-top: 1px solid var(--border);
+  }
+  .reason-answer.show { display: block; animation: fadeDown 0.3s ease; }
+  .reason-answer strong { color: var(--cyan); }
+  .reason-answer .formula-block {
+    font-family: var(--font-mono);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.78rem;
+    color: var(--green);
+    margin: 0.75rem 0;
+    line-height: 1.6;
+  }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-5px);} to{opacity:1;transform:translateY(0);} }
+
+  /* ===== CHEAT SHEET ===== */
+  .cheat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  @media(max-width:768px){ .cheat-grid { grid-template-columns: 1fr; } }
+  .cheat-cell {
+    background: var(--surface);
+    padding: 1.5rem;
+  }
+  .cheat-title {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .cheat-item {
+    display: flex; gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .cheat-item::before {
+    content: '→';
+    color: var(--amber);
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+  }
+  .cheat-item strong { color: var(--text); font-weight: 600; }
+  .cheat-item span { color: var(--text-dim); }
+
+  /* ===== STEREOCHEMISTRY VIZ ===== */
+  .stereo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .stereo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    text-align: center;
+  }
+  .stereo-visual {
+    margin: 1.5rem 0;
+    position: relative;
+  }
+  .stereo-card h3 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .stereo-card .tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--purple);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .stereo-card p {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+    margin-top: 1rem;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  footer a { color: var(--cyan); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ===== TABS ===== */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:768px) {
+    .nav-tabs { display: none; }
+    .hero-stats { gap: 1rem; }
+    .battle-wrapper { font-size: 0.8rem; overflow-x: auto; }
+    section { padding: 3rem 1rem; }
+  }
+
+  /* ===== PROGRESS RING ===== */
+  .progress-ring-wrapper {
+    display: flex; align-items: center; gap: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  svg.ring { transform: rotate(-90deg); }
+  .ring circle { transition: stroke-dashoffset 1s ease; }
+
+  /* ===== CATEGORY BADGES ===== */
+  .cat-basics { background: rgba(0,229,255,0.12); color: var(--cyan); border: 1px solid rgba(0,229,255,0.25); }
+  .cat-mechanism { background: rgba(255,183,0,0.12); color: var(--amber); border: 1px solid rgba(255,183,0,0.25); }
+  .cat-stereo { background: rgba(168,85,247,0.12); color: var(--purple); border: 1px solid rgba(168,85,247,0.25); }
+  .cat-haloarene { background: rgba(0,255,136,0.12); color: var(--green); border: 1px solid rgba(0,255,136,0.25); }
+  .cat-reasons { background: rgba(255,71,87,0.12); color: var(--red); border: 1px solid rgba(255,71,87,0.25); }
+  .cat-reactions { background: rgba(255,183,0,0.12); color: var(--amber); border: 1px solid rgba(255,183,0,0.25); }
+
+  /* ===== SCORE MODAL ===== */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(8,12,20,0.9);
+    backdrop-filter: blur(10px);
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: var(--surface2);
+    border: 2px solid var(--cyan);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: var(--glow-cyan), 0 40px 100px rgba(0,0,0,0.8);
+    animation: modalIn 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  @keyframes modalIn { from{opacity:0;transform:scale(0.85);} to{opacity:1;transform:scale(1);} }
+  .modal h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+  }
+  .modal .score-display {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--cyan);
+    line-height: 1;
+    margin: 1rem 0;
+  }
+  .modal p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem; }
+
+  /* Sticky jump buttons */
+  .sticky-jump {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 90;
+  }
+  .jump-btn {
+    width: 44px; height: 44px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--text-muted);
+  }
+  .jump-btn:hover { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim); }
+
+  .wide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media(max-width:768px){ .wide-grid { grid-template-columns: 1fr; } }
+
+  /* Halogen series visual */
+  .halogen-bar {
+    display: flex; align-items: stretch; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+  .hal-seg {
+    flex: 1;
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    transition: flex 0.4s ease;
+  }
+  .hal-seg:hover { flex: 1.5; }
+  .hal-sym {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .hal-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  kbd {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.15rem 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">⬡ Haloalkanes & Haloarenes</div>
+  <ul class="nav-tabs" id="navTabs">
+    <li><a href="#concepts" class="active">Concepts</a></li>
+    <li><a href="#mechanisms">Mechanisms</a></li>
+    <li><a href="#flashcards">Flashcards</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+    <li><a href="#reactions">Reactions</a></li>
+    <li><a href="#reasons">Give Reasons</a></li>
+    <li><a href="#cheatsheet">Cheat Sheet</a></li>
+  </ul>
+  <div class="nav-credit">by <a href="https://github.com/SrihariMuralikrishnan" target="_blank">@sriharideveloper</a></div>
+</nav>
+
+<!-- STICKY JUMP -->
+<div class="sticky-jump">
+  <a href="#" class="jump-btn" title="Top">↑</a>
+  <a href="#flashcards" class="jump-btn" title="Flashcards">🃏</a>
+  <a href="#quiz" class="jump-btn" title="Quiz">⚡</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="molecule m1"></div>
+  <div class="molecule m2"></div>
+  <div class="molecule m3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      CLASS 12 · ORGANIC CHEMISTRY · VIVA MASTER
+    </div>
+    <h1>
+      <span class="cyan">Haloalkanes</span><br>
+      &amp; <span class="amber">Haloarenes</span>
+    </h1>
+    <p class="hero-sub">
+      Every concept. Every reaction. Every "give reason." Engineered for neurological retention — visual-spatial learning meets active recall.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-pill">
+        <span class="num">50+</span>
+        <span class="label">Viva Questions</span>
+      </div>
+      <div class="stat-pill">
+        <span class="num">7</span>
+        <span class="label">Name Reactions</span>
+      </div>
+      <div class="stat-pill">
+        <span class="num">12</span>
+        <span class="label">Give Reasons</span>
+      </div>
+      <div class="stat-pill">
+        <span class="num">∞</span>
+        <span class="label">Quiz Attempts</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#concepts" class="btn-primary">Start Learning</a>
+      <a href="#quiz" class="btn-ghost">⚡ Quick Quiz</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 1 — CORE CONCEPTS
+══════════════════════════════════════════ -->
+<section id="concepts">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Core Concepts & Fundamentals</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <!-- Halogen Series Visual -->
+  <div class="reveal" style="margin-bottom:2.5rem;">
+    <p style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">BOILING POINT ORDER → R-I > R-Br > R-Cl > R-F (Hover to expand)</p>
+    <div class="halogen-bar">
+      <div class="hal-seg" style="background:linear-gradient(135deg,rgba(255,71,87,0.15),rgba(255,71,87,0.05));">
+        <span class="hal-sym" style="color:#ff4757">I</span>
+        <span class="hal-label" style="color:#ff4757">Iodine<br>Highest BP<br>Most Van der Waals</span>
+      </div>
+      <div class="hal-seg" style="background:linear-gradient(135deg,rgba(255,183,0,0.15),rgba(255,183,0,0.05));">
+        <span class="hal-sym" style="color:var(--amber)">Br</span>
+        <span class="hal-label" style="color:var(--amber)">Bromine<br>High BP</span>
+      </div>
+      <div class="hal-seg" style="background:linear-gradient(135deg,rgba(0,229,255,0.15),rgba(0,229,255,0.05));">
+        <span class="hal-sym" style="color:var(--cyan)">Cl</span>
+        <span class="hal-label" style="color:var(--cyan)">Chlorine<br>Medium BP</span>
+      </div>
+      <div class="hal-seg" style="background:linear-gradient(135deg,rgba(0,255,136,0.15),rgba(0,255,136,0.05));">
+        <span class="hal-sym" style="color:var(--green)">F</span>
+        <span class="hal-label" style="color:var(--green)">Fluorine<br>Lowest BP<br>Highest Electronegativity</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">DIPOLE MOMENT ORDER → R-Cl > R-F > R-Br > R-I (charge × distance, not just electronegativity!)</p>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card reveal" style="--card-accent:var(--cyan)">
+      <div class="card-icon" style="background:var(--cyan-dim)">⬡</div>
+      <div class="card-tag">Classification</div>
+      <div class="card-title">1°, 2° & 3° Haloalkanes</div>
+      <div class="card-body">
+        <strong>Primary (1°):</strong> Halogen on a carbon bonded to <strong>one</strong> other carbon.<br><br>
+        <strong>Secondary (2°):</strong> Halogen on a carbon bonded to <strong>two</strong> other carbons.<br><br>
+        <strong>Tertiary (3°):</strong> Halogen on a carbon bonded to <strong>three</strong> other carbons.
+        <div class="highlight">3° &gt; 2° &gt; 1° → SN1 reactivity (carbocation stability)</div>
+        <div class="highlight">CH₃X &gt; 1° &gt; 2° &gt; 3° → SN2 reactivity (steric factor)</div>
+      </div>
+    </div>
+
+    <div class="concept-card reveal" style="--card-accent:var(--amber)">
+      <div class="card-icon" style="background:var(--amber-dim)">🔗</div>
+      <div class="card-tag">Special Types</div>
+      <div class="card-title">Allylic, Benzylic & Vinylic</div>
+      <div class="card-body">
+        <strong>Allylic:</strong> X on sp³ carbon <em>next to</em> C=C double bond (C=C–C–X)<br><br>
+        <strong>Benzylic:</strong> X on sp³ carbon <em>next to</em> benzene ring (Ph–CH₂–X)<br><br>
+        <strong>Vinylic:</strong> X directly on sp² carbon of a double bond (C=C–X)<br><br>
+        <ul>
+          <li>Allylic & Benzylic → <strong>prefer SN1</strong> (stable carbocation via resonance)</li>
+          <li>Vinylic → <strong>very unreactive</strong> to nucleophilic sub.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="concept-card reveal" style="--card-accent:var(--green)">
+      <div class="card-icon" style="background:var(--green-dim)">⚛️</div>
+      <div class="card-tag">Bond Nature</div>
+      <div class="card-title">The C–X Bond</div>
+      <div class="card-body">
+        Halogens are more electronegative than carbon → <strong>C–X bond is polar</strong><br><br>
+        Carbon gets <strong>δ+</strong> charge; Halogen gets <strong>δ−</strong> charge<br><br>
+        <strong>Bond Strength:</strong> C–F &gt; C–Cl &gt; C–Br &gt; C–I<br>
+        <strong>Bond Length:</strong> C–F &lt; C–Cl &lt; C–Br &lt; C–I<br><br>
+        <div class="highlight">⚠️ Dipole Moment Trap: CH₃Cl &gt; CH₃F despite F being more electronegative! Bond length wins here.</div>
+      </div>
+    </div>
+
+    <div class="concept-card reveal" style="--card-accent:var(--purple)">
+      <div class="card-icon" style="background:var(--purple-dim)">🔬</div>
+      <div class="card-tag">Hybridization</div>
+      <div class="card-title">Haloalkane vs Haloarene</div>
+      <div class="card-body">
+        <strong>Haloalkane:</strong> X attached to <strong>sp³ hybridized</strong> carbon → reactive, undergoes SN1/SN2<br><br>
+        <strong>Haloarene:</strong> X attached to <strong>sp²  hybridized</strong> carbon of aromatic ring → very unreactive<br><br>
+        <ul>
+          <li>sp² carbon is more electronegative → holds electrons tighter</li>
+          <li>Lone pairs of X participate in <strong>resonance</strong> → C–X gets partial double bond character</li>
+          <li>Phenyl cation is very unstable → SN1 ruled out</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="concept-card reveal" style="--card-accent:var(--cyan)">
+      <div class="card-icon" style="background:var(--cyan-dim)">💧</div>
+      <div class="card-tag">Physical Properties</div>
+      <div class="card-title">Boiling Point & Solubility</div>
+      <div class="card-body">
+        <strong>Boiling Point Rules:</strong>
+        <ul>
+          <li>R–I &gt; R–Br &gt; R–Cl &gt; R–F → More massive = stronger Van der Waals</li>
+          <li>Branching ↑ → BP ↓ (more spherical = less surface area = weaker VdW)</li>
+          <li>Chain length ↑ → BP ↑ (more surface area)</li>
+          <li>Alkyl halides &gt; Alkanes (dipole-dipole &gt; Van der Waals only)</li>
+        </ul>
+        <br>
+        <strong>Solubility:</strong> Haloalkanes are <em>insoluble in water</em> — they can't form H-bonds with water, and energy released by new interactions is insufficient to break H-bonds in water.
+        <div class="highlight">Para-dichlorobenzene: highest MP of isomers (most symmetrical → best crystal packing)</div>
+      </div>
+    </div>
+
+    <div class="concept-card reveal" style="--card-accent:var(--red)">
+      <div class="card-icon" style="background:var(--red-dim)">🎯</div>
+      <div class="card-tag">Directing Effects</div>
+      <div class="card-title">Halogen on Benzene Ring</div>
+      <div class="card-body">
+        Halogens on benzene show <strong>dual behavior:</strong><br><br>
+        <strong>–I effect (inductive):</strong> Withdraws electrons → deactivates ring overall<br><br>
+        <strong>+R effect (resonance):</strong> Donates lone pairs into ring → increases electron density specifically at ortho and para positions<br><br>
+        <div class="highlight">∴ Halogens are RING DEACTIVATORS but ORTHO/PARA DIRECTORS for EAS</div>
+        Major product is usually <strong>para</strong> (less steric hindrance than ortho).
+      </div>
+    </div>
+
+    <div class="concept-card reveal" style="--card-accent:var(--amber)">
+      <div class="card-icon" style="background:var(--amber-dim)">🔀</div>
+      <div class="card-tag">Nucleophiles</div>
+      <div class="card-title">Ambident Nucleophiles</div>
+      <div class="card-body">
+        <strong>Nucleophile:</strong> Electron-rich species (Lewis base) that attacks a positive center. Examples: OH⁻, Cl⁻, H₂O, NH₃<br><br>
+        <strong>Ambident Nucleophile:</strong> Has <em>two possible attack sites</em><br><br>
+        <strong>CN⁻ (Cyanide):</strong><br>
+        • KCN (ionic) → attacks via <strong>Carbon</strong> → Cyanide (R–CN)<br>
+        • AgCN (covalent) → attacks via <strong>Nitrogen</strong> → Isocyanide (R–NC)<br><br>
+        <strong>NO₂⁻ (Nitrite):</strong><br>
+        • KNO₂ (ionic) → attacks via <strong>Oxygen</strong> → Alkyl nitrite (R–O–N=O)<br>
+        • AgNO₂ (covalent) → attacks via <strong>Nitrogen</strong> → Nitroalkane (R–NO₂)
+      </div>
+    </div>
+
+    <div class="concept-card reveal" style="--card-accent:var(--green)">
+      <div class="card-icon" style="background:var(--green-dim)">📏</div>
+      <div class="card-tag">Nomenclature</div>
+      <div class="card-title">IUPAC Naming Rules</div>
+      <div class="card-body">
+        <ol style="padding-left:1.25rem;">
+          <li>Find <strong>longest chain</strong> containing the halogen</li>
+          <li>Number from the end giving halogen the <strong>lowest locant</strong></li>
+          <li>Halogens are named as <strong>prefixes</strong>: fluoro-, chloro-, bromo-, iodo-</li>
+          <li>List substituents in <strong>alphabetical order</strong></li>
+          <li>For haloarenes: use prefix system with position numbers</li>
+        </ol>
+        <div class="highlight">Example: 2-Bromo-3-chlorobutane (bromo before chloro = alphabetical)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2 — MECHANISMS
+══════════════════════════════════════════ -->
+<section id="mechanisms">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">SN1 vs SN2 — The Battle Table</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="battle-wrapper reveal">
+    <div class="battle-header">
+      <div class="bh-cell feature">FEATURE</div>
+      <div class="bh-cell sn1">⚡ SN1 — Unimolecular</div>
+      <div class="bh-cell sn2">🎯 SN2 — Bimolecular</div>
+    </div>
+    <div class="battle-row">
+      <div class="br-cell feature">STEPS</div>
+      <div class="br-cell sn1"><span class="emoji">2️⃣</span>Two steps — forms carbocation intermediate THEN nucleophile attacks</div>
+      <div class="br-cell sn2"><span class="emoji">1️⃣</span>One step — concerted mechanism; bond breaking & forming happen SIMULTANEOUSLY</div>
+    </div>
+    <div class="battle-row">
+      <div class="br-cell feature">RATE LAW</div>
+      <div class="br-cell sn1">Rate = k[substrate] only — independent of nucleophile concentration</div>
+      <div class="br-cell sn2">Rate = k[substrate][nucleophile] — depends on BOTH</div>
+    </div>
+    <div class="battle-row">
+      <div class="br-cell feature">REACTIVITY ORDER</div>
+      <div class="br-cell sn1">3° &gt; 2° &gt; 1° &gt; CH₃X (more substituted = more stable carbocation)</div>
+      <div class="br-cell sn2">CH₃X &gt; 1° &gt; 2° &gt; 3° (less substituted = less steric hindrance for backside attack)</div>
+    </div>
+    <div class="battle-row">
+      <div class="br-cell feature">STEREOCHEMISTRY</div>
+      <div class="br-cell sn1">🔄 Racemization → 50:50 mixture of enantiomers. Planar carbocation attacked from both sides equally</div>
+      <div class="br-cell sn2">🔃 Inversion of Configuration (Walden Inversion). Nucleophile attacks from BACK, flips the molecule like an umbrella in wind</div>
+    </div>
+    <div class="battle-row">
+      <div class="br-cell feature">INTERMEDIATE</div>
+      <div class="br-cell sn1">Carbocation (sp² hybridized, planar, stable with 3° &amp; resonance)</div>
+      <div class="br-cell sn2">Transition state only — pentacoordinate carbon (trigonal bipyramidal)</div>
+    </div>
+    <div class="battle-row">
+      <div class="br-cell feature">SOLVENT</div>
+      <div class="br-cell sn1">Polar PROTIC solvents (water, alcohols) — solvate and stabilize carbocation + leaving group via H-bonding</div>
+      <div class="br-cell sn2">Polar APROTIC solvents (acetone, DMSO, DMF) — don't solvate nucleophile, keeps it "naked" and reactive</div>
+    </div>
+    <div class="battle-row">
+      <div class="br-cell feature">SUBSTRATE PREFERENCE</div>
+      <div class="br-cell sn1">Tertiary haloalkanes, Allylic/Benzylic halides (resonance-stabilized carbocations)</div>
+      <div class="br-cell sn2">Methyl and primary haloalkanes (unhindered)</div>
+    </div>
+    <div class="battle-row">
+      <div class="br-cell feature">NUCLEOPHILE STRENGTH</div>
+      <div class="br-cell sn1">Weak nucleophiles work fine (H₂O, ROH) since it's a 2-step process</div>
+      <div class="br-cell sn2">Strong nucleophiles required (OH⁻, CN⁻, I⁻) — must attack in one step</div>
+    </div>
+  </div>
+
+  <!-- Elimination -->
+  <div style="margin-top:3rem;">
+    <div class="section-header reveal">
+      <span class="section-num" style="background:var(--amber-dim);border-color:rgba(255,183,0,0.3);color:var(--amber);">E1/E2</span>
+      <h2 class="section-title" style="font-size:1.2rem;">β-Elimination & Saytzeff's Rule</h2>
+    </div>
+    <div class="wide-grid">
+      <div class="concept-card reveal" style="--card-accent:var(--amber)">
+        <div class="card-tag">Elimination Mechanism</div>
+        <div class="card-title">β-Elimination (Dehydrohalogenation)</div>
+        <div class="card-body">
+          When a haloalkane is heated with <strong>alcoholic KOH</strong>:<br><br>
+          • H is removed from the <strong>β-carbon</strong> (adjacent to C bearing X)<br>
+          • X is removed from the <strong>α-carbon</strong><br>
+          • A <strong>double bond (alkene)</strong> is formed<br><br>
+          <strong>Aqueous KOH</strong> → provides OH⁻ (good nucleophile) → <strong>substitution (SN2)</strong><br><br>
+          <strong>Alcoholic KOH</strong> → provides RO⁻ (strong base) → <strong>elimination</strong>
+        </div>
+      </div>
+      <div class="concept-card reveal" style="--card-accent:var(--amber)">
+        <div class="card-tag">Regiochemistry</div>
+        <div class="card-title">Saytzeff's Rule</div>
+        <div class="card-body">
+          The major product of dehydrohalogenation is the <strong>more substituted alkene</strong> (more alkyl groups on double-bonded carbons) because it is more stable (more hyperconjugation).<br><br>
+          <strong>Markovnikov's Rule:</strong> When HX adds to asymmetrical alkene, X⁻ goes to carbon with <em>fewer</em> H atoms<br><br>
+          <strong>Anti-Markovnikov (Peroxide Effect):</strong> Only with HBr + peroxides → Br goes to carbon with <em>more</em> H atoms (free radical mechanism)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3 — STEREOCHEMISTRY
+══════════════════════════════════════════ -->
+<section id="stereo">
+  <div class="section-header reveal">
+    <span class="section-num" style="background:var(--purple-dim);border-color:rgba(168,85,247,0.3);color:var(--purple);">03</span>
+    <h2 class="section-title">Stereochemistry — All Definitions</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="stereo-grid">
+    <div class="stereo-card reveal">
+      <div class="tag">Stereochemistry</div>
+      <h3>Chiral Carbon</h3>
+      <div class="stereo-visual">
+        <svg viewBox="0 0 200 160" width="100%" style="max-width:200px">
+          <circle cx="100" cy="80" r="20" fill="rgba(168,85,247,0.3)" stroke="#a855f7" stroke-width="2"/>
+          <text x="100" y="85" text-anchor="middle" fill="#a855f7" font-size="10" font-family="Space Mono">C*</text>
+          <line x1="100" y1="60" x2="100" y2="20" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="80" y1="80" x2="30" y2="80" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="120" y1="80" x2="170" y2="80" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="100" y1="100" x2="100" y2="140" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <text x="100" y="14" text-anchor="middle" fill="#00e5ff" font-size="9" font-family="Space Mono">A</text>
+          <text x="22" y="83" text-anchor="middle" fill="#00ff88" font-size="9" font-family="Space Mono">B</text>
+          <text x="178" y="83" text-anchor="middle" fill="#ffb700" font-size="9" font-family="Space Mono">C</text>
+          <text x="100" y="154" text-anchor="middle" fill="#ff4757" font-size="9" font-family="Space Mono">D</text>
+        </svg>
+      </div>
+      <p>A carbon bonded to <strong style="color:#a855f7">four different groups</strong> (A, B, C, D). Also called an <em>asymmetric carbon</em>.</p>
+    </div>
+
+    <div class="stereo-card reveal">
+      <div class="tag">Stereochemistry</div>
+      <h3>Enantiomers</h3>
+      <div class="stereo-visual">
+        <svg viewBox="0 0 200 120" width="100%" style="max-width:200px">
+          <circle cx="60" cy="60" r="25" fill="rgba(0,229,255,0.15)" stroke="#00e5ff" stroke-width="2"/>
+          <text x="60" y="64" text-anchor="middle" fill="#00e5ff" font-size="9" font-family="Space Mono">R</text>
+          <circle cx="140" cy="60" r="25" fill="rgba(255,183,0,0.15)" stroke="#ffb700" stroke-width="2"/>
+          <text x="140" y="64" text-anchor="middle" fill="#ffb700" font-size="9" font-family="Space Mono">S</text>
+          <line x1="90" y1="60" x2="110" y2="60" stroke="#64748b" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="100" y="55" text-anchor="middle" fill="#64748b" font-size="8" font-family="Space Mono">mirror</text>
+          <text x="60" y="105" text-anchor="middle" fill="#64748b" font-size="8" font-family="Space Mono">dextro (+)</text>
+          <text x="140" y="105" text-anchor="middle" fill="#64748b" font-size="8" font-family="Space Mono">laevo (−)</text>
+        </svg>
+      </div>
+      <p><strong style="color:#00e5ff">Non-superimposable mirror images</strong>. Rotate plane-polarized light equally but in opposite directions.</p>
+    </div>
+
+    <div class="stereo-card reveal">
+      <div class="tag">Stereochemistry</div>
+      <h3>Racemic Mixture</h3>
+      <div class="stereo-visual">
+        <svg viewBox="0 0 200 100" width="100%" style="max-width:200px">
+          <rect x="20" y="20" width="70" height="60" rx="8" fill="rgba(0,229,255,0.1)" stroke="#00e5ff" stroke-width="1.5"/>
+          <text x="55" y="53" text-anchor="middle" fill="#00e5ff" font-size="18" font-family="Unbounded, sans-serif">50%</text>
+          <rect x="110" y="20" width="70" height="60" rx="8" fill="rgba(255,183,0,0.1)" stroke="#ffb700" stroke-width="1.5"/>
+          <text x="145" y="53" text-anchor="middle" fill="#ffb700" font-size="18" font-family="Unbounded, sans-serif">50%</text>
+          <text x="100" y="97" text-anchor="middle" fill="#00ff88" font-size="8" font-family="Space Mono">OPTICALLY INACTIVE (net zero rotation)</text>
+        </svg>
+      </div>
+      <p>Equal mixture of two enantiomers → <strong style="color:#00ff88">zero optical activity</strong>. Rotations cancel out perfectly. Formed by SN1 mechanism.</p>
+    </div>
+
+    <div class="stereo-card reveal">
+      <div class="tag">Stereochemistry</div>
+      <h3>Walden Inversion</h3>
+      <div class="stereo-visual">
+        <svg viewBox="0 0 200 110" width="100%" style="max-width:200px">
+          <polygon points="40,55 70,30 70,80" fill="rgba(0,229,255,0.2)" stroke="#00e5ff" stroke-width="1.5"/>
+          <circle cx="100" cy="55" r="18" fill="rgba(168,85,247,0.2)" stroke="#a855f7" stroke-width="2"/>
+          <text x="100" y="59" text-anchor="middle" fill="#a855f7" font-size="9" font-family="Space Mono">C*</text>
+          <polygon points="160,55 130,30 130,80" fill="rgba(255,183,0,0.2)" stroke="#ffb700" stroke-width="1.5"/>
+          <line x1="118" y1="55" x2="130" y2="55" stroke="#ffb700" stroke-width="1.5"/>
+          <line x1="70" y1="55" x2="82" y2="55" stroke="#00e5ff" stroke-width="1.5"/>
+          <text x="23" y="59" text-anchor="middle" fill="#00e5ff" font-size="9" font-family="Space Mono">Nu⁻</text>
+          <text x="177" y="59" text-anchor="middle" fill="#ffb700" font-size="9" font-family="Space Mono">X</text>
+          <path d="M25,25 Q100,5 175,25" stroke="#64748b" stroke-width="1" fill="none" marker-end="url(#arr)" stroke-dasharray="3,2"/>
+          <text x="100" y="20" text-anchor="middle" fill="#64748b" font-size="8" font-family="Space Mono">INVERSION</text>
+        </svg>
+      </div>
+      <p>In <strong style="color:#a855f7">SN2</strong>: nucleophile attacks from <em>backside</em> → configuration flips like an umbrella in wind → <strong>inverted product</strong>.</p>
+    </div>
+
+    <div class="stereo-card reveal">
+      <div class="tag">Optical Activity</div>
+      <h3>Plane-Polarized Light</h3>
+      <div class="stereo-visual" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);padding:1rem;background:var(--bg);border-radius:8px;border:1px solid var(--border)">
+        Ordinary light → vibrates in ALL planes<br><br>
+        <span style="color:var(--cyan)">Polarizer</span> → allows only ONE plane<br><br>
+        <span style="color:var(--amber)">Chiral molecule</span> → rotates that plane<br><br>
+        <span style="color:var(--green)">Detector</span> → measures angle of rotation
+      </div>
+      <p>Chiral molecules rotate the plane of polarized light. <strong style="color:#ffb700">Dextrorotatory (+)</strong> = clockwise; <strong style="color:#00e5ff">Laevorotatory (−)</strong> = anticlockwise.</p>
+    </div>
+
+    <div class="stereo-card reveal">
+      <div class="tag">Key Fact</div>
+      <h3>(±) Butan-2-ol</h3>
+      <div class="stereo-visual" style="font-family:var(--font-mono);font-size:1.5rem;color:var(--green);text-align:center;padding:1rem;">
+        Optically<br>Inactive ✓
+      </div>
+      <p>The <strong style="color:#00ff88">(±)</strong> symbol denotes a <em>racemic mixture</em>. The optical rotation of (+) and (−) isomers cancel perfectly → net rotation = 0.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4 — FLASHCARDS
+══════════════════════════════════════════ -->
+<section id="flashcards">
+  <div class="section-header reveal">
+    <span class="section-num" style="background:var(--purple-dim);border-color:rgba(168,85,247,0.3);color:var(--purple);">04</span>
+    <h2 class="section-title">Active Recall Flashcards</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="reveal">
+    <div class="flashcard-controls">
+      <button class="filter-btn active" onclick="filterCards('all',this)">All (50+)</button>
+      <button class="filter-btn" onclick="filterCards('basics',this)">🔵 Basics</button>
+      <button class="filter-btn" onclick="filterCards('mechanism',this)">🟡 Mechanism</button>
+      <button class="filter-btn" onclick="filterCards('stereo',this)">🟣 Stereo</button>
+      <button class="filter-btn" onclick="filterCards('haloarene',this)">🟢 Haloarene</button>
+      <button class="filter-btn" onclick="filterCards('reasons',this)">🔴 Give Reasons</button>
+      <button class="filter-btn" onclick="filterCards('reactions',this)">🟠 Reactions</button>
+      <div class="fc-progress-bar"><div class="fc-progress-fill" id="fcProgress"></div></div>
+      <div class="fc-counter" id="fcCounter">0 / 0</div>
+    </div>
+
+    <div class="progress-ring-wrapper">
+      <svg class="ring" width="70" height="70" viewBox="0 0 70 70">
+        <circle cx="35" cy="35" r="28" fill="none" stroke="var(--border)" stroke-width="6"/>
+        <circle id="ringCircle" cx="35" cy="35" r="28" fill="none" stroke="var(--cyan)" stroke-width="6"
+          stroke-dasharray="175.9" stroke-dashoffset="175.9" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:900;color:var(--cyan)" id="pctText">0%</div>
+        <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted)">CARDS REVIEWED</div>
+      </div>
+      <div style="flex:1;font-size:0.82rem;color:var(--text-dim);line-height:1.6">
+        Click the card to reveal the answer. Mark as <span style="color:var(--green)">✓ Got It</span> or <span style="color:var(--red)">✗ Review</span> to track progress.
+        <br><span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted)">Keyboard: <kbd>Space</kbd> flip · <kbd>→</kbd> next · <kbd>←</kbd> prev</span>
+      </div>
+      <button class="filter-btn" onclick="shuffleCards()" style="flex-shrink:0">🔀 Shuffle</button>
+      <button class="filter-btn" onclick="resetProgress()" style="flex-shrink:0">↺ Reset</button>
+    </div>
+
+    <div class="flashcard-deck" onclick="flipCard()">
+      <div class="flashcard" id="flashcard">
+        <div class="flashcard-face fc-front" id="fcFront">
+          <span class="fc-category" id="fcCat"></span>
+          <div class="fc-question" id="fcQ"></div>
+          <div class="fc-hint">🎯 Click to reveal answer</div>
+        </div>
+        <div class="flashcard-face fc-back" id="fcBack">
+          <span class="fc-category" id="fcCatBack"></span>
+          <div class="fc-answer" id="fcA"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc-nav">
+      <button class="fc-nav-btn incorrect" id="btnWrong" onclick="markCard(false)">✗ Review Again</button>
+      <button class="fc-nav-btn" onclick="prevCard()">← Prev</button>
+      <button class="fc-nav-btn" onclick="nextCard()">Next →</button>
+      <button class="fc-nav-btn correct" id="btnRight" onclick="markCard(true)">✓ Got It</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5 — QUIZ MODE
+══════════════════════════════════════════ -->
+<section id="quiz">
+  <div class="section-header reveal">
+    <span class="section-num" style="background:var(--amber-dim);border-color:rgba(255,183,0,0.3);color:var(--amber);">05</span>
+    <h2 class="section-title">⚡ Quiz Mode — Test Yourself</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="quiz-wrapper reveal">
+    <div class="quiz-top">
+      <div class="quiz-score">Score: <span id="quizScore">0</span> / <span id="quizTotal">0</span></div>
+      <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted)">Question <span id="quizNum">1</span> of <span id="quizMax">0</span></div>
+      <button class="filter-btn" onclick="startQuiz()">↺ New Quiz</button>
+    </div>
+    <div class="quiz-question" id="quizQ">Loading questions...</div>
+    <div class="quiz-options" id="quizOpts"></div>
+    <div class="quiz-explanation" id="quizExp"></div>
+    <button class="quiz-btn" id="quizNext" onclick="nextQuestion()" disabled>Next Question →</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6 — NAME REACTIONS
+══════════════════════════════════════════ -->
+<section id="reactions">
+  <div class="section-header reveal">
+    <span class="section-num" style="background:var(--amber-dim);border-color:rgba(255,183,0,0.3);color:var(--amber);">06</span>
+    <h2 class="section-title">Name Reactions — Full Arsenal</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="reactions-grid">
+    <div class="reaction-card reveal" style="--card-accent:var(--cyan);--card-glow:rgba(0,229,255,0.08)">
+      <div class="reaction-name">Finkelstein Reaction</div>
+      <div class="reaction-type">Halogen Exchange · SN2</div>
+      <div class="reaction-equation">R–Cl (or R–Br) + NaI → R–I + NaCl<br>Solvent: Dry Acetone<br>Driving force: NaCl/NaBr is insoluble in acetone → precipitates out → equilibrium shifts forward</div>
+      <div class="reaction-memory">Think: FinkelstEIn = Iodine (the 'I' in Einstein is the hint!)</div>
+    </div>
+
+    <div class="reaction-card reveal" style="--card-accent:var(--green);--card-glow:rgba(0,255,136,0.08)">
+      <div class="reaction-name">Swarts Reaction</div>
+      <div class="reaction-type">Fluorination · Halogen Exchange</div>
+      <div class="reaction-equation">R–Cl + AgF (or Hg₂F₂) → R–F + AgCl<br>Best method for making alkyl fluorides.<br>Can't use HF directly — too dangerous.</div>
+      <div class="reaction-memory">Swarts = Silver/Fluoride. "Swart" sounds like "swap" — swapping for Fluorine.</div>
+    </div>
+
+    <div class="reaction-card reveal" style="--card-accent:var(--amber);--card-glow:rgba(255,183,0,0.08)">
+      <div class="reaction-name">Wurtz Reaction</div>
+      <div class="reaction-type">Carbon Chain Coupling · Free Radical</div>
+      <div class="reaction-equation">2 R–X + 2 Na → R–R + 2 NaX<br>Solvent: Dry Ether<br>Product: Symmetrical alkane (DOUBLE the carbons!)<br>Only works well with primary alkyl halides.</div>
+      <div class="reaction-memory">Wurtz = "Worth it" — doubles your carbon chain. 2 halides → 1 big alkane.</div>
+    </div>
+
+    <div class="reaction-card reveal" style="--card-accent:var(--purple);--card-glow:rgba(168,85,247,0.08)">
+      <div class="reaction-name">Fittig Reaction</div>
+      <div class="reaction-type">Aryl Coupling · Sodium Metal</div>
+      <div class="reaction-equation">2 Ar–X + 2 Na → Ar–Ar + 2 NaX<br>Solvent: Dry Ether<br>Product: Biphenyl/Diphenyl (two benzene rings joined)</div>
+      <div class="reaction-memory">Fittig = 2 rings Fitting together. Aryl + Aryl = Biphenyl.</div>
+    </div>
+
+    <div class="reaction-card reveal" style="--card-accent:var(--red);--card-glow:rgba(255,71,87,0.08)">
+      <div class="reaction-name">Wurtz–Fittig Reaction</div>
+      <div class="reaction-type">Mixed Coupling · Alkylbenzene Synthesis</div>
+      <div class="reaction-equation">Ar–X + R–X + 2 Na → Ar–R + 2 NaX<br>Solvent: Dry Ether<br>Product: Alkylbenzene (arene)<br>One aryl halide + one alkyl halide</div>
+      <div class="reaction-memory">Wurtz-Fittig = Best of both worlds. Alkyl meets Aryl, sodium joins them.</div>
+    </div>
+
+    <div class="reaction-card reveal" style="--card-accent:var(--cyan);--card-glow:rgba(0,229,255,0.08)">
+      <div class="reaction-name">Sandmeyer's Reaction</div>
+      <div class="reaction-type">Haloarene Synthesis from Diazonium Salt</div>
+      <div class="reaction-equation">C₆H₅N₂⁺Cl⁻ + Cu₂Cl₂/HCl → C₆H₅Cl + N₂<br>C₆H₅N₂⁺Cl⁻ + Cu₂Br₂/HBr → C₆H₅Br + N₂<br>Catalyst: Cuprous halide (Cu₂X₂)<br>Starting material: Benzene diazonium chloride</div>
+      <div class="reaction-memory">Sandmeyer = Sand + Meyer. Cuprous (Cu) catalyst is KEY. Diazonium → Haloarene.</div>
+    </div>
+
+    <div class="reaction-card reveal" style="--card-accent:var(--amber);--card-glow:rgba(255,183,0,0.08)">
+      <div class="reaction-name">Friedel–Crafts Reactions</div>
+      <div class="reaction-type">Electrophilic Aromatic Substitution (EAS)</div>
+      <div class="reaction-equation">ALKYLATION: Ar–H + R–Cl → Ar–R + HCl [AlCl₃, anhydrous]<br>ACYLATION: Ar–H + R–COCl → Ar–COR + HCl [AlCl₃, anhydrous]<br>Catalyst: Anhydrous AlCl₃ (Lewis acid)<br>Note: Haloarenes undergo F-C slowly (ring deactivated by –I effect)</div>
+      <div class="reaction-memory">Friedel-Crafts: "Friend adding stuff to the ring." AlCl₃ is the MANDATORY catalyst.</div>
+    </div>
+
+    <!-- Grignard -->
+    <div class="reaction-card reveal" style="--card-accent:var(--green);--card-glow:rgba(0,255,136,0.08)">
+      <div class="reaction-name">Grignard Reagent (RMgX)</div>
+      <div class="reaction-type">Organometallic Reagent Synthesis</div>
+      <div class="reaction-equation">R–X + Mg → R–Mg–X (in dry ether)<br>Example: CH₃Br + Mg → CH₃MgBr (Methylmagnesium bromide)<br>⚠️ STRICTLY ANHYDROUS CONDITIONS REQUIRED<br>RMgX + H₂O → R–H + Mg(OH)X (destroyed!)</div>
+      <div class="reaction-memory">Grignard = "Guaranteed Ruined If Moisture Near." Water destroys it instantly!</div>
+    </div>
+  </div>
+
+  <!-- 5 EAS Reactions on Haloarenes -->
+  <div style="margin-top:3rem;" class="reveal">
+    <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;">
+      5 ELECTROPHILIC SUBSTITUTION REACTIONS OF HALOARENES (ortho/para — para is major)
+    </div>
+    <div class="battle-wrapper">
+      <div class="battle-header">
+        <div class="bh-cell feature">REACTION</div>
+        <div class="bh-cell sn1">REAGENTS / CONDITIONS</div>
+        <div class="bh-cell sn2">MAJOR PRODUCT</div>
+      </div>
+      <div class="battle-row">
+        <div class="br-cell feature">1. Halogenation</div>
+        <div class="br-cell sn1">Cl₂ + Anhydrous FeCl₃ (Lewis acid catalyst)</div>
+        <div class="br-cell sn2">1-chloro-4-chlorobenzene (para-dichlorobenzene) as major product</div>
+      </div>
+      <div class="battle-row">
+        <div class="br-cell feature">2. Nitration</div>
+        <div class="br-cell sn1">Conc. HNO₃ + Conc. H₂SO₄ (mixed acid; H₂SO₄ generates NO₂⁺)</div>
+        <div class="br-cell sn2">1-chloro-4-nitrobenzene (para) as major; 1-chloro-2-nitrobenzene (ortho) minor</div>
+      </div>
+      <div class="battle-row">
+        <div class="br-cell feature">3. Sulfonation</div>
+        <div class="br-cell sn1">Conc. H₂SO₄ (fuming, heated)</div>
+        <div class="br-cell sn2">4-chlorobenzenesulfonic acid (para major)</div>
+      </div>
+      <div class="battle-row">
+        <div class="br-cell feature">4. Friedel-Crafts Alkylation</div>
+        <div class="br-cell sn1">R–Cl + Anhydrous AlCl₃</div>
+        <div class="br-cell sn2">1-chloro-4-methylbenzene (para major)</div>
+      </div>
+      <div class="battle-row">
+        <div class="br-cell feature">5. Friedel-Crafts Acylation</div>
+        <div class="br-cell sn1">R–COCl + Anhydrous AlCl₃</div>
+        <div class="br-cell sn2">4-chloroacetophenone (para major)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 7 — GIVE REASONS
+══════════════════════════════════════════ -->
+<section id="reasons">
+  <div class="section-header reveal">
+    <span class="section-num" style="background:var(--red-dim);border-color:rgba(255,71,87,0.3);color:var(--red);">07</span>
+    <h2 class="section-title">"Give Reasons" — All 12 High-Yield Questions</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="reasons-list reveal" id="reasonsList"></div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 8 — CHEAT SHEET
+══════════════════════════════════════════ -->
+<section id="cheatsheet">
+  <div class="section-header reveal">
+    <span class="section-num">08</span>
+    <h2 class="section-title">⚡ Last-Minute Cheat Sheet</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="cheat-grid reveal">
+    <div class="cheat-cell">
+      <div class="cheat-title">🔵 Boiling Point Rules</div>
+      <div class="cheat-item"><strong>Halogen size ↑</strong> <span>→ BP ↑ (VdW forces)</span></div>
+      <div class="cheat-item"><strong>Branching ↑</strong> <span>→ BP ↓ (less surface area)</span></div>
+      <div class="cheat-item"><strong>Chain length ↑</strong> <span>→ BP ↑</span></div>
+      <div class="cheat-item"><strong>R–I &gt; R–Br &gt; R–Cl &gt; R–F</strong> <span>order</span></div>
+      <div class="cheat-item"><strong>Alkyl halides &gt; Alkanes</strong> <span>(polar &gt; non-polar)</span></div>
+    </div>
+    <div class="cheat-cell">
+      <div class="cheat-title">🟡 SN1 Bullets</div>
+      <div class="cheat-item"><strong>2 steps</strong> <span>→ carbocation intermediate</span></div>
+      <div class="cheat-item"><strong>3° &gt; 2° &gt; 1°</strong> <span>reactivity</span></div>
+      <div class="cheat-item"><strong>Racemization</strong> <span>→ 50:50 enantiomers</span></div>
+      <div class="cheat-item"><strong>Polar protic</strong> <span>solvent (water, alcohol)</span></div>
+      <div class="cheat-item"><strong>Weak Nu OK</strong> <span>→ H₂O, ROH work fine</span></div>
+    </div>
+    <div class="cheat-cell">
+      <div class="cheat-title">🎯 SN2 Bullets</div>
+      <div class="cheat-item"><strong>1 step concerted</strong> <span>→ transition state</span></div>
+      <div class="cheat-item"><strong>CH₃X &gt; 1° &gt; 2° &gt; 3°</strong> <span>reactivity</span></div>
+      <div class="cheat-item"><strong>Inversion</strong> <span>→ Walden inversion</span></div>
+      <div class="cheat-item"><strong>Polar aprotic</strong> <span>solvent (DMSO, acetone)</span></div>
+      <div class="cheat-item"><strong>Strong Nu needed</strong> <span>→ OH⁻, CN⁻, I⁻</span></div>
+    </div>
+    <div class="cheat-cell">
+      <div class="cheat-title">🟠 Name Reactions Quick-Fire</div>
+      <div class="cheat-item"><strong>Finkelstein</strong> <span>→ NaI/acetone → R–I</span></div>
+      <div class="cheat-item"><strong>Swarts</strong> <span>→ AgF → R–F (fluorination)</span></div>
+      <div class="cheat-item"><strong>Wurtz</strong> <span>→ 2RX + 2Na → R–R (alkane)</span></div>
+      <div class="cheat-item"><strong>Fittig</strong> <span>→ 2ArX + 2Na → Ar–Ar</span></div>
+      <div class="cheat-item"><strong>Wurtz-Fittig</strong> <span>→ ArX + RX + 2Na → Ar–R</span></div>
+      <div class="cheat-item"><strong>Sandmeyer</strong> <span>→ Diazonium + Cu₂X₂ → ArX</span></div>
+    </div>
+    <div class="cheat-cell">
+      <div class="cheat-title">🟢 Haloarene 3 Reasons</div>
+      <div class="cheat-item"><strong>Resonance</strong> <span>→ C–X partial double bond</span></div>
+      <div class="cheat-item"><strong>sp² carbon</strong> <span>→ more electronegative</span></div>
+      <div class="cheat-item"><strong>Phenyl cation</strong> <span>→ highly unstable</span></div>
+      <div class="cheat-item" style="margin-top:0.5rem"><strong>BUT ortho/para director</strong> <span>+R effect wins position</span></div>
+      <div class="cheat-item"><strong>Nitro at o/p</strong> <span>→ activates Nu. sub.</span></div>
+    </div>
+    <div class="cheat-cell">
+      <div class="cheat-title">🔴 Killer "Why" Answers</div>
+      <div class="cheat-item"><strong>Chloroform dark bottle</strong> <span>→ prevents phosgene</span></div>
+      <div class="cheat-item"><strong>Grignard anhydrous</strong> <span>→ water destroys it</span></div>
+      <div class="cheat-item"><strong>KCN → cyanide</strong> <span>C attacks (ionic KCN)</span></div>
+      <div class="cheat-item"><strong>AgCN → isocyanide</strong> <span>N attacks (covalent)</span></div>
+      <div class="cheat-item"><strong>H₃PO₄ with KI</strong> <span>not H₂SO₄ (oxidizes HI)</span></div>
+      <div class="cheat-item"><strong>Iodination + HNO₃</strong> <span>removes HI (reducing agent)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:0.5rem">
+    Built for peak retention. Every question answered. Every reason explained.
+  </p>
+  <p>
+    Crafted by <a href="https://github.com/SrihariMuralikrishnan" target="_blank">@sriharideveloper — Srihari Muralikrishnan</a> ·
+    Class 12 Organic Chemistry — Haloalkanes & Haloarenes
+  </p>
+</footer>
+
+<!-- SCORE MODAL -->
+<div class="modal-overlay" id="scoreModal">
+  <div class="modal">
+    <div style="font-size:2rem;margin-bottom:0.5rem">🎯</div>
+    <h2>Quiz Complete!</h2>
+    <div class="score-display" id="modalScore">0/0</div>
+    <p id="modalMsg">Great work! Keep reviewing the missed questions.</p>
+    <button class="quiz-btn" onclick="closeModal()">↺ Try Again</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+// ============ DATA ============
+const flashcards = [
+  // BASICS
+  {cat:'basics',q:'What is the hybridization difference between Haloalkane and Haloarene?',a:'<strong>Haloalkane:</strong> X is attached to an <strong>sp³ hybridized</strong> carbon → reactive, undergoes SN1/SN2.<br><strong>Haloarene:</strong> X is attached to an <strong>sp² hybridized</strong> carbon of an aromatic ring → very unreactive to nucleophilic substitution. sp² carbon is more electronegative and holds electrons more tightly.'},
+  {cat:'basics',q:'Why does CH₃Cl have a higher dipole moment than CH₃F, despite F being more electronegative?',a:'Dipole moment = <strong>charge × distance (bond length)</strong>. Although F has higher electronegativity (greater charge separation), the C–F bond is much <em>shorter</em> than C–Cl. The longer C–Cl bond compensates, giving CH₃Cl a <strong>higher overall dipole moment</strong>. Order: R–Cl > R–F > R–Br > R–I'},
+  {cat:'basics',q:'What is an Ambident Nucleophile? Give examples.',a:'A nucleophile with <strong>two different possible attack sites</strong>.<br><br><strong>CN⁻ (Cyanide):</strong> Attacks via Carbon (→ R–CN cyanide) or Nitrogen (→ R–NC isocyanide)<br><strong>NO₂⁻ (Nitrite):</strong> Attacks via Oxygen (→ alkyl nitrite) or Nitrogen (→ nitroalkane)<br><br>With <em>ionic</em> KCN/KNO₂ → C or O attacks. With <em>covalent</em> AgCN/AgNO₂ → N attacks.'},
+  {cat:'basics',q:'Define Allylic, Benzylic, and Vinylic halides.',a:'<strong>Allylic:</strong> X on sp³ carbon adjacent to C=C (C=C–C–X). Highly reactive in SN1 (allylic carbocation is resonance-stabilized).<br><br><strong>Benzylic:</strong> X on sp³ carbon adjacent to benzene ring (Ph–CH₂–X). Also SN1 favored.<br><br><strong>Vinylic:</strong> X directly on sp² carbon of double bond (C=C–X). Very unreactive.'},
+  {cat:'basics',q:'State the IUPAC nomenclature rules for haloalkanes.',a:'1. Select the <strong>longest chain containing the halogen</strong>.<br>2. Number from the end giving halogen the <strong>lowest locant</strong>.<br>3. Halogens are named as <strong>prefixes</strong>: fluoro-, chloro-, bromo-, iodo-.<br>4. List substituents in <strong>alphabetical order</strong>.<br>Example: 2-Bromo-3-chlorobutane (bromo before chloro = alphabetical)'},
+  {cat:'basics',q:'What is the boiling point trend for haloalkanes and why?',a:'<strong>Order: R–I > R–Br > R–Cl > R–F</strong><br>Because as halogen size increases, <strong>Van der Waals (London dispersion) forces</strong> become stronger, requiring more energy to overcome.<br><br>Also: branching ↑ → BP ↓ (more spherical molecule, less surface area, weaker VdW). Chain length ↑ → BP ↑.'},
+  {cat:'basics',q:'Why are haloalkanes insoluble in water even though they are polar?',a:'To dissolve in water, haloalkanes must break the <strong>strong hydrogen bonds</strong> between water molecules. The energy released by forming new <strong>dipole-dipole interactions</strong> between haloalkane and water is NOT sufficient to overcome the energy needed to break H-bonds in water. Therefore they remain insoluble.'},
+  {cat:'basics',q:'Why does p-dichlorobenzene have a higher melting point than ortho and meta isomers?',a:'The <strong>para-isomer is highly symmetrical</strong>. It packs more efficiently into a <strong>crystal lattice</strong>, creating stronger and more extensive intermolecular forces. Greater lattice energy = higher melting point needed to disrupt it. Ortho and meta have asymmetrical shapes → poorer crystal packing → lower MP.'},
+  {cat:'basics',q:'Why do alkyl halides have higher boiling points than corresponding hydrocarbons?',a:'Hydrocarbons (alkanes) are <strong>non-polar</strong> — held together by weak Van der Waals forces only. Alkyl halides are <strong>polar</strong> due to the electronegative halogen → they experience stronger <strong>dipole-dipole interactions</strong> in addition to Van der Waals. More energy is needed to overcome these stronger forces → higher BP.'},
+  {cat:'basics',q:'What is the reactivity order of halogens as leaving groups?',a:'<strong>I⁻ > Br⁻ > Cl⁻ > F⁻</strong> (best to worst leaving group)<br><br>Because the C–I bond is the <strong>longest and weakest</strong> → easiest to break. F forms the strongest C–X bond → worst leaving group. This explains why R–I reacts fastest in nucleophilic substitution.'},
+
+  // MECHANISM
+  {cat:'mechanism',q:'Describe the SN1 mechanism with reactivity order and stereochemical outcome.',a:'<strong>2-step mechanism:</strong><br>Step 1: Slow ionization — haloalkane loses X⁻ to form a <strong>planar carbocation</strong><br>Step 2: Fast — nucleophile attacks the carbocation<br><br><strong>Reactivity: 3° > 2° > 1°</strong> (more substituted = more stable carbocation)<br><br><strong>Stereochemistry: Racemization</strong> — planar carbocation is attacked equally from both faces → 50:50 mixture of enantiomers.<br><br><strong>Solvent:</strong> Polar protic (water, alcohol) — solvates carbocation and leaving group.'},
+  {cat:'mechanism',q:'Describe the SN2 mechanism with reactivity order and stereochemical outcome.',a:'<strong>1-step concerted mechanism:</strong> Bond breaking and forming occur simultaneously. Nucleophile attacks from the <strong>back</strong> (anti to leaving group).<br><br><strong>Reactivity: CH₃X > 1° > 2° > 3°</strong> — steric hindrance blocks back attack on 3° carbons<br><br><strong>Stereochemistry: Inversion of configuration (Walden Inversion)</strong> — molecule flips like an umbrella in the wind.<br><br><strong>Solvent:</strong> Polar aprotic (DMSO, acetone, DMF) — doesn\'t solvate nucleophile, keeps it reactive.'},
+  {cat:'mechanism',q:'What is β-elimination and Saytzeff\'s Rule?',a:'When a haloalkane is heated with <strong>alcoholic KOH</strong>:<br>• H removed from <strong>β-carbon</strong>, X removed from α-carbon → forms an <strong>alkene</strong><br><br><strong>Saytzeff\'s Rule:</strong> The preferred product is the <strong>more substituted alkene</strong> (more alkyl groups on double bond carbons) because it is thermodynamically more stable.<br><br>Aqueous KOH → substitution. Alcoholic KOH → elimination.'},
+  {cat:'mechanism',q:'State Markovnikov\'s and Anti-Markovnikov\'s rules.',a:'<strong>Markovnikov\'s Rule:</strong> When HX adds to an asymmetrical alkene, the negative part (X⁻) goes to the carbon with <em>fewer</em> hydrogen atoms (more substituted carbon).<br><br><strong>Anti-Markovnikov (Peroxide Effect):</strong> Only with <strong>HBr + peroxides</strong> → Br goes to the carbon with <em>more</em> H atoms (less substituted carbon). Proceeds by <strong>free radical</strong> mechanism.'},
+  {cat:'mechanism',q:'Why do SN1 reactions require polar protic solvents?',a:'SN1 reactions form a <strong>carbocation intermediate</strong>. Polar protic solvents (water, alcohols) have high dielectric constants and can form <strong>hydrogen bonds</strong>. They <strong>solvate</strong> both the positive carbocation and the negative leaving group, <strong>stabilizing them</strong> and preventing recombination. This makes the ionization (rate-determining step) more feasible.'},
+  {cat:'mechanism',q:'Why do SN2 reactions prefer polar aprotic solvents?',a:'SN2 needs a <strong>strong, reactive ("naked") nucleophile</strong>. Polar protic solvents would solvate (surround) the nucleophile via H-bonds, making it less reactive.<br><br>Polar aprotic solvents (DMSO, acetone, DMF) have high dielectric constants (dissolve ionic compounds) but <strong>cannot form H-bonds</strong> with the nucleophile → nucleophile remains "bare" and highly reactive.'},
+  {cat:'mechanism',q:'Why do allylic and benzylic halides preferentially undergo SN1?',a:'SN1 depends on <strong>carbocation stability</strong>. When allylic/benzylic C–X ionizes:<br><br>• <strong>Allylic carbocation:</strong> Positive charge is <em>delocalized</em> via resonance across adjacent double bond<br>• <strong>Benzylic carbocation:</strong> Positive charge is delocalized into the benzene ring<br><br>This resonance stabilization makes the carbocation very stable → SN1 is favored.'},
+  {cat:'mechanism',q:'What is free radical halogenation and what is the major product?',a:'Alkane + X₂ → haloalkane + HX (in presence of UV light, hν)<br><br>Mechanism: Free radical chain (Initiation → Propagation → Termination)<br><br><strong>Major product:</strong> From the <strong>most stable free radical (3° > 2° > 1°)</strong> — tertiary radicals are stabilized by hyperconjugation from surrounding alkyl groups.<br><br>Note: Poor lab method — gives a complex mixture of isomers.'},
+
+  // STEREOCHEMISTRY
+  {cat:'stereo',q:'Define all stereochemistry terms: chirality, enantiomers, racemic mixture, optical activity.',a:'<strong>Chiral Carbon:</strong> Carbon bonded to four different groups.<br><strong>Optical Activity:</strong> Ability of a chiral substance to rotate plane of polarized light.<br><strong>Enantiomers:</strong> Non-superimposable mirror images. Rotate light equally but in opposite directions.<br><strong>Dextrorotatory (+/d):</strong> Rotates light clockwise.<br><strong>Laevorotatory (−/l):</strong> Rotates light anticlockwise.<br><strong>Racemic Mixture:</strong> 1:1 mix of enantiomers → optically inactive.<br><strong>Racemization:</strong> Process of converting a pure enantiomer to a racemic mixture.'},
+  {cat:'stereo',q:'Is (±) Butan-2-ol optically active? Explain.',a:'<strong>No, (±) Butan-2-ol is optically INACTIVE.</strong><br><br>The (±) symbol denotes a <strong>racemic mixture</strong> — equal amounts of (+) and (−) enantiomers. The clockwise rotation of the (+) isomer is exactly cancelled by the anticlockwise rotation of the (−) isomer. Net optical rotation = 0.'},
+  {cat:'stereo',q:'What is Walden Inversion and in which mechanism does it occur?',a:'<strong>Walden Inversion</strong> occurs in <strong>SN2</strong> mechanism.<br><br>The nucleophile attacks from the <strong>back</strong> (opposite face to the leaving group). As the leaving group departs, all three remaining groups flip to the other side — like an umbrella inverting in the wind.<br><br>Result: The product has an <strong>inverted spatial arrangement</strong> at the chiral center (R → S or S → R configuration).'},
+  {cat:'stereo',q:'What is plane-polarized light?',a:'Ordinary light vibrates in all planes perpendicular to its direction of travel. When it passes through a <strong>polarizer (Nicol prism)</strong>, light emerges vibrating in <strong>only one specific plane</strong> — this is <strong>plane-polarized light</strong>.<br><br>Chiral molecules rotate this plane. The angle of rotation is measured by a <strong>polarimeter</strong>.'},
+
+  // HALOARENE
+  {cat:'haloarene',q:'Give THREE reasons why haloarenes resist nucleophilic substitution.',a:'<strong>1. Resonance Effect:</strong> Lone pairs on X participate in resonance with benzene ring → C–X bond gains <strong>partial double bond character</strong> → much harder to break than a single bond.<br><br><strong>2. Hybridization:</strong> The carbon bearing X is <strong>sp² hybridized</strong> (more electronegative than sp³) → holds the C–X bond electrons more tightly.<br><br><strong>3. Phenyl Cation Instability:</strong> SN1 requires a stable carbocation. The phenyl cation is <strong>highly unstable</strong> → SN1 pathway is completely ruled out.'},
+  {cat:'haloarene',q:'Why is chlorine ortho/para directing despite being overall electron-withdrawing?',a:'Chlorine shows <strong>dual behavior</strong>:<br><br><strong>–I effect (inductive):</strong> Withdraws electrons through the σ-bond → deactivates ring overall → makes electrophilic substitution harder.<br><br><strong>+R effect (resonance):</strong> Lone pairs on Cl are donated back into the π system → electron density increases <em>specifically</em> at ortho and para positions.<br><br>Since the +R effect determines <em>position</em> (not overall rate), Cl is an <strong>ortho/para director despite being a ring deactivator</strong>.'},
+  {cat:'haloarene',q:'How does a nitro group (-NO₂) affect nucleophilic substitution in haloarenes?',a:'–NO₂ is a powerful <strong>electron-withdrawing group</strong>.<br><br>In nucleophilic substitution of haloarenes, a carbanion intermediate forms. If –NO₂ is at <strong>ortho or para</strong> positions, it <strong>stabilizes the carbanion</strong> through resonance (the negative charge can be delocalized onto NO₂).<br><br>If –NO₂ is at <strong>meta</strong> position, it cannot stabilize via resonance → little activation effect.<br><br>∴ ortho/para –NO₂ groups <strong>greatly increase the rate</strong> of nucleophilic substitution in haloarenes.'},
+  {cat:'haloarene',q:'Why does cyclohexyl chloride have a higher dipole moment than chlorobenzene?',a:'In <strong>chlorobenzene</strong>: C–Cl is attached to sp² carbon (more electronegative → pulls electrons back). Also, the <strong>+R effect</strong> of Cl donates electrons back into the ring, partially cancelling the dipole. Additionally, partial double bond character shortens the C–Cl bond.<br><br>In <strong>cyclohexyl chloride</strong>: C–Cl is attached to sp³ carbon (less electronegative → normal polar bond, full single bond length).<br><br>∴ Cyclohexyl chloride has a <strong>larger, less cancelled dipole moment</strong>.'},
+  {cat:'haloarene',q:'Why is iodination of benzene conducted in the presence of HNO₃ or HIO₄?',a:'The iodination reaction produces <strong>HI as a byproduct</strong>. HI is a <strong>strong reducing agent</strong> that immediately reverses the reaction, converting I₂ back and removing iodine from the ring.<br><br>Adding an <strong>oxidizing agent (HNO₃ or HIO₄)</strong> consumes HI by oxidizing it to I₂, preventing the reverse reaction and <strong>driving the equilibrium forward</strong> toward the product.'},
+  {cat:'haloarene',q:'List the 5 electrophilic substitution reactions of haloarenes.',a:'All reactions go to <strong>ortho and para</strong> (para is major due to less steric hindrance):<br><br>1. <strong>Halogenation:</strong> + Cl₂/FeCl₃ → p-dichlorobenzene (major)<br>2. <strong>Nitration:</strong> + HNO₃/H₂SO₄ → p-chloronitrobenzene (major)<br>3. <strong>Sulfonation:</strong> + conc. H₂SO₄ → p-chlorobenzenesulfonic acid<br>4. <strong>Friedel-Crafts Alkylation:</strong> + RCl/AlCl₃ → p-chloroalkylandbenzene<br>5. <strong>Friedel-Crafts Acylation:</strong> + RCOCl/AlCl₃ → p-chloroacetophenone'},
+
+  // GIVE REASONS
+  {cat:'reasons',q:'Why is thionyl chloride (SOCl₂) the preferred reagent for making alkyl chlorides from alcohols?',a:'When SOCl₂ reacts with an alcohol, the byproducts are <strong>SO₂ (gas)</strong> and <strong>HCl (gas)</strong>. Both escape from the reaction mixture.<br><br>This leaves behind a <strong>pure alkyl chloride</strong> — no further purification needed. With other reagents (PCl₃, PCl₅), phosphorus-containing byproducts remain and complicate purification.'},
+  {cat:'reasons',q:'Why must Grignard reagents be prepared under strictly anhydrous (moisture-free) conditions?',a:'Grignard reagents (RMgX) are <strong>extremely reactive</strong>. Even trace moisture causes immediate decomposition:<br><br><span class="formula">RMgX + H₂O → R–H + Mg(OH)X</span><br><br>The Grignard reagent reacts with water like an acid-base reaction, producing an alkane and destroying the useful organometallic. Dry ether solvent must be used.'},
+  {cat:'reasons',q:'Why does KCN give cyanides while AgCN gives isocyanides with alkyl halides?',a:'<strong>KCN is ionic</strong> → provides free CN⁻ ions. The carbon end of CN⁻ is the softer, more polarizable site → attacks the carbon of R–X → forms <strong>cyanide (R–CN)</strong> (C–C bond formed).<br><br><strong>AgCN is covalent</strong> → Ag is bonded to C. The nitrogen end becomes free. Nitrogen\'s lone pair attacks R–X → forms <strong>isocyanide (R–NC)</strong>.<br><br>Similar logic applies to KNO₂ (alkyl nitrite) vs AgNO₂ (nitroalkane).'},
+  {cat:'reasons',q:'Why is chloroform stored in dark-colored, airtight bottles with a little ethanol?',a:'In the presence of <strong>air and light</strong>, chloroform slowly undergoes oxidation:<br><br><span class="formula">2CHCl₃ + O₂ → 2COCl₂ + 2HCl</span><br><br>Phosgene (COCl₂) is a <strong>highly toxic gas (used as a chemical weapon in WWI)</strong>.<br><br>Dark bottles block light. Airtight containers prevent O₂ contact. A small amount of <strong>ethanol</strong> is added as a stabilizer — it reacts with any phosgene formed to produce harmless diethyl carbonate.'},
+  {cat:'reasons',q:'Why use H₃PO₄ (not H₂SO₄) when making alkyl iodides from alcohols with KI?',a:'To make R–I, the alcohol reacts with HI (generated from KI + acid).<br><br><strong>H₂SO₄ is a strong oxidizing acid</strong> → it oxidizes HI to iodine (I₂) before HI can react with the alcohol. The desired product never forms.<br><br><strong>H₃PO₄ is a non-oxidizing acid</strong> → it generates HI without oxidizing it → HI remains available to react with the alcohol → good yield of R–I.'},
+  {cat:'reasons',q:'Why do branched haloalkanes have lower boiling points than straight-chain isomers?',a:'Branching makes the molecule more <strong>spherical/compact</strong>. This reduces the <strong>surface area</strong> available for intermolecular contact.<br><br>Smaller surface area → <strong>weaker Van der Waals (London dispersion) forces</strong> between molecules → less energy needed to overcome these forces → <strong>lower boiling point</strong>.'},
+  {cat:'reasons',q:'Why does R-I undergo nucleophilic substitution much faster than R-Cl?',a:'The <strong>C–I bond is longer and weaker</strong> than the C–Cl bond (I is a larger atom, so the bond is more diffuse).<br><br>As a result, <strong>I⁻ is a much better leaving group</strong> than Cl⁻ — it can accommodate the negative charge more effectively due to larger size and more diffuse charge.<br><br>Reactivity order of leaving groups: I⁻ > Br⁻ > Cl⁻ > F⁻'},
+  {cat:'reasons',q:'Why does aqueous KOH give alcohols but alcoholic KOH gives alkenes from haloalkanes?',a:'<strong>Aqueous KOH</strong>: Water dissociates it to provide <strong>OH⁻ ions</strong>. OH⁻ is a good <em>nucleophile</em> → attacks the carbon bearing X → <strong>substitution (SN2) → alcohol</strong>.<br><br><strong>Alcoholic KOH</strong>: In ethanol, the dominant species is the <strong>alkoxide ion (C₂H₅O⁻)</strong> — a much <em>stronger base</em> than OH⁻. It abstracts the β-hydrogen → <strong>elimination → alkene</strong>.<br><br>Key: nucleophile → substitution; strong base → elimination.'},
+
+  // NAME REACTIONS
+  {cat:'reactions',q:'State the Finkelstein Reaction. What is the driving force?',a:'<strong>R–Cl (or R–Br) + NaI → R–I + NaCl</strong><br>Solvent: Dry acetone<br><br>The driving force is <strong>Le Chatelier\'s Principle</strong>: NaCl and NaBr are <strong>insoluble in dry acetone</strong> and precipitate out as they form. This removes the product from equilibrium and continuously shifts the reaction <strong>forward</strong> toward R–I.'},
+  {cat:'reactions',q:'State the Swarts Reaction and its purpose.',a:'<strong>R–Cl + AgF (or Hg₂F₂) → R–F + AgCl</strong><br><br>Purpose: <strong>Best method for preparing alkyl fluorides</strong>. Direct fluorination with HF is too dangerous (highly corrosive). Silver fluoride provides a safe, selective source of F⁻.'},
+  {cat:'reactions',q:'State Wurtz, Fittig, and Wurtz-Fittig reactions.',a:'<strong>Wurtz:</strong> 2 R–X + 2 Na → R–R + 2 NaX (Dry ether) — gives symmetrical alkane (doubles C chain).<br><br><strong>Fittig:</strong> 2 Ar–X + 2 Na → Ar–Ar + 2 NaX (Dry ether) — gives biphenyl.<br><br><strong>Wurtz-Fittig:</strong> Ar–X + R–X + 2 Na → Ar–R + 2 NaX (Dry ether) — gives alkylbenzene.'},
+  {cat:'reactions',q:'What is Sandmeyer\'s Reaction? Write the equation.',a:'Converts benzene diazonium chloride into a haloarene using cuprous halide catalysts:<br><br><span class="formula">C₆H₅N₂⁺Cl⁻ + Cu₂Cl₂/HCl → C₆H₅Cl + N₂↑</span><br><span class="formula">C₆H₅N₂⁺Cl⁻ + Cu₂Br₂/HBr → C₆H₅Br + N₂↑</span><br><br>Catalyst: <strong>Cuprous halide (Cu₂X₂)</strong>. Starting material is <strong>benzene diazonium salt</strong>.'},
+  {cat:'reactions',q:'How are Grignard reagents prepared? Write the equation and why must conditions be anhydrous?',a:'<strong>Preparation:</strong> Alkyl halide + Mg in dry ether<br><br><span class="formula">R–X + Mg → R–Mg–X (Grignard reagent)</span><br><span class="formula">Example: CH₃Br + Mg → CH₃MgBr (Methylmagnesium bromide)</span><br><br><strong>Must be anhydrous</strong> because Grignard reagents react instantly with water:<br><span class="formula">RMgX + H₂O → R–H + Mg(OH)X</span><br>Even trace moisture destroys the reagent.'},
+  {cat:'reactions',q:'What is Friedel-Crafts Alkylation and Acylation?',a:'Both are Electrophilic Aromatic Substitution reactions. <strong>Anhydrous AlCl₃</strong> is the mandatory Lewis acid catalyst.<br><br><strong>Alkylation:</strong> Ar–H + R–Cl/AlCl₃ → Ar–R + HCl<br>(adds alkyl group to ring)<br><br><strong>Acylation:</strong> Ar–H + R–COCl/AlCl₃ → Ar–COR + HCl<br>(adds acyl group; product is a ketone).<br><br>Haloarenes undergo Friedel-Crafts slowly (ring is deactivated by –I effect of halogen).'},
+  {cat:'reactions',q:'What is DDT? Why is it banned?',a:'<strong>DDT = p,p\'-Dichlorodiphenyltrichloroethane</strong><br><br><strong>Uses:</strong> Extremely effective insecticide against mosquitoes (malaria control) and lice (typhus).<br><br><strong>Banned because:</strong><br>• It is <strong>non-biodegradable</strong> — persists in the environment for decades<br>• It is <strong>fat-soluble</strong> — accumulates in fatty tissue<br>• <strong>Biomagnification</strong> — concentration increases up the food chain<br>• Causes <strong>reproductive issues</strong> in birds (eggshell thinning → embryo death)'},
+  {cat:'reactions',q:'What are Freons? What is their use and problem?',a:'<strong>Freons = Chlorofluorocarbons (CFCs)</strong> — compounds of methane/ethane where all H atoms are replaced by F and Cl.<br><br><strong>Uses:</strong> Refrigerants in ACs and fridges; propellants in aerosol sprays; fire retardants.<br><br><strong>Problem:</strong> In the stratosphere, UV radiation breaks C–Cl bonds → releases Cl• radicals → destroy ozone (O₃) molecules → <strong>ozone layer depletion</strong> → increased UV reaching Earth\'s surface → skin cancer.'},
+  {cat:'reactions',q:'What is Iodoform (CHI₃)? How does it work as an antiseptic?',a:'<strong>Iodoform = Triiodomethane (CHI₃)</strong> — a yellow crystalline solid with a characteristic smell.<br><br><strong>Historical use:</strong> Antiseptic wound dressing.<br><br><strong>Mechanism:</strong> Iodoform itself is <strong>not the active antiseptic</strong>. When it contacts skin, it slowly <strong>releases free iodine (I₂)</strong>, which is the actual antimicrobial agent. Today largely replaced by better antiseptics.'},
+];
+
+const quizData = [
+  {q:'Which mechanism involves a 2-step reaction with a carbocation intermediate?',opts:['SN2','E2','SN1','E1'],correct:2,exp:'<strong>SN1</strong> is a 2-step mechanism: (1) slow ionization forms a carbocation intermediate, then (2) fast nucleophilic attack.'},
+  {q:'What is the stereochemical outcome of an SN2 reaction?',opts:['Retention of configuration','Racemization','Inversion of configuration (Walden Inversion)','No change in stereochemistry'],correct:2,exp:'<strong>SN2</strong> causes <strong>Walden Inversion</strong> — the nucleophile attacks from the backside, flipping all three groups like an umbrella.'},
+  {q:'Which solvent favors SN1 reactions?',opts:['Polar aprotic (DMSO)','Polar protic (water, alcohol)','Non-polar (hexane)','Polar aprotic (DMF)'],correct:1,exp:'<strong>Polar protic solvents</strong> (water, alcohols) stabilize the carbocation intermediate and leaving group via solvation and hydrogen bonding.'},
+  {q:'In the Finkelstein reaction, what is the product?',opts:['Alkyl fluoride','Alkyl bromide','Alkyl iodide','Alkyl chloride'],correct:2,exp:'<strong>Finkelstein reaction</strong>: R–Cl + NaI (dry acetone) → <strong>R–I</strong> + NaCl↓. NaCl precipitates driving the reaction forward.'},
+  {q:'Why are Grignard reagents prepared under anhydrous conditions?',opts:['To prevent oxidation','Water reacts with RMgX destroying it (RMgX + H₂O → RH)','To speed up the reaction','To prevent polymerization'],correct:1,exp:'<strong>RMgX + H₂O → R–H + Mg(OH)X</strong>. Even trace moisture destroys the Grignard reagent instantly.'},
+  {q:'Which order is correct for SN2 reactivity?',opts:['3° > 2° > 1° > CH₃X','CH₃X > 1° > 2° > 3°','1° > 3° > 2° > CH₃X','2° > 1° > 3° > CH₃X'],correct:1,exp:'<strong>SN2 reactivity: CH₃X > 1° > 2° > 3°</strong> — less steric hindrance at less substituted carbons allows backside attack.'},
+  {q:'Haloarenes resist nucleophilic substitution because of:',opts:['High temperature requirement','Resonance (C-X partial double bond), sp² C, unstable phenyl cation','Low solubility in polar solvents','The halogen is too small'],correct:1,exp:'Three reasons: <strong>resonance</strong> gives C–X partial double bond character; <strong>sp² carbon</strong> holds electrons tighter; <strong>phenyl cation</strong> is too unstable for SN1.'},
+  {q:'What does Saytzeff\'s Rule state?',opts:['The less substituted alkene is the major product','Addition of HX follows Markovnikov\'s rule','The more substituted alkene is the major elimination product','Elimination requires polar protic solvent'],correct:2,exp:'<strong>Saytzeff\'s Rule</strong>: In dehydrohalogenation, the major product is the <strong>more substituted alkene</strong> (more alkyl groups on C=C) as it is more stable.'},
+  {q:'KCN + alkyl halide gives which product?',opts:['Isocyanide (R–NC)','Nitroalkane','Cyanide (R–CN)','Alkyl nitrite'],correct:2,exp:'<strong>KCN is ionic</strong> → free CN⁻ attacks through <strong>Carbon</strong> → forms <strong>cyanide (R–CN)</strong>. AgCN (covalent) → N attacks → isocyanide.'},
+  {q:'The peroxide effect causes HBr to add to alkenes in what manner?',opts:['Markovnikov addition','Anti-Markovnikov addition','Random addition','No addition occurs'],correct:1,exp:'<strong>Anti-Markovnikov</strong>: With HBr + peroxides, the free radical mechanism causes Br to add to the carbon with <em>more</em> H atoms (less substituted carbon).'},
+  {q:'Chloroform is stored in dark-colored bottles to prevent formation of:',opts:['Carbon tetrachloride','Dichloromethane','Phosgene (COCl₂) — a toxic gas','Chlorine gas'],correct:2,exp:'Light + O₂ oxidizes chloroform to <strong>phosgene (COCl₂)</strong>, an extremely toxic gas. Dark bottles block the light needed for this reaction.'},
+  {q:'What is the reactivity order for boiling points of haloalkanes?',opts:['R–F > R–Cl > R–Br > R–I','R–I > R–Br > R–Cl > R–F','R–Cl > R–Br > R–F > R–I','R–F > R–I > R–Br > R–Cl'],correct:1,exp:'<strong>R–I > R–Br > R–Cl > R–F</strong>. Larger halogen → stronger Van der Waals forces → higher boiling point.'},
+  {q:'Which reagent is used in the Swarts reaction to make alkyl fluorides?',opts:['NaF','HF','AgF or Hg₂F₂','CaF₂'],correct:2,exp:'<strong>Swarts Reaction</strong>: R–Cl + <strong>AgF (or Hg₂F₂)</strong> → R–F. HF is too dangerous for direct use.'},
+  {q:'A racemic mixture is:',opts:['A pure enantiomer','50:50 mix of enantiomers; optically inactive','A diastereomeric mixture','An optically active compound'],correct:1,exp:'A <strong>racemic mixture</strong> contains equal amounts of (+) and (−) enantiomers. Their optical rotations cancel → <strong>net rotation = 0 (optically inactive)</strong>.'},
+  {q:'Which reaction couples two aryl halides using sodium in dry ether?',opts:['Wurtz reaction','Wurtz-Fittig reaction','Fittig reaction','Sandmeyer\'s reaction'],correct:2,exp:'<strong>Fittig Reaction</strong>: 2 Ar–X + 2 Na → Ar–Ar (biphenyl) + 2 NaX. Wurtz = two alkyl halides. Wurtz-Fittig = one aryl + one alkyl.'},
+  {q:'Why is the dipole moment of CH₃Cl greater than CH₃F?',opts:['F is less electronegative than Cl','C–Cl bond is longer; dipole = charge × distance','C–F bond is weaker','CH₃Cl has higher molecular weight'],correct:1,exp:'Dipole moment = <strong>charge × distance</strong>. Although F is more electronegative, the <strong>C–Cl bond is significantly longer</strong>, resulting in a larger overall dipole moment for CH₃Cl.'},
+  {q:'DDT was banned because:',opts:['It is too expensive to produce','It is non-biodegradable and undergoes biomagnification causing reproductive harm in wildlife','It reacts with water','It is not effective as an insecticide'],correct:1,exp:'DDT is <strong>non-biodegradable</strong>, <strong>fat-soluble</strong>, and undergoes <strong>biomagnification</strong> through the food chain. It causes reproductive issues in birds (eggshell thinning) and environmental persistence.'},
+  {q:'What does the +R effect of halogens on a benzene ring cause?',opts:['Meta direction of incoming electrophiles','Deactivation of the ring to all positions','Ortho/para direction of incoming electrophiles','Activation of the ring at all positions'],correct:2,exp:'The <strong>+R effect</strong>: lone pairs of halogen are donated into the benzene ring via resonance → electron density increases at <strong>ortho and para</strong> positions → these positions are attacked by electrophiles.'},
+  {q:'The Wurtz reaction gives a symmetrical alkane. What does this mean?',opts:['The product has only even-numbered carbons','The product is the same as a straight-chain alkane','The product has DOUBLE the carbons of the starting alkyl halide','The product is always methane'],correct:2,exp:'<strong>Wurtz Reaction</strong>: 2 R–X + 2 Na → R–R + 2 NaX. The product is an alkane with <strong>twice the carbon chain length</strong> of the starting halide. E.g., CH₃Cl gives ethane (C₂H₆).'},
+  {q:'In nucleophilic substitution, which is the best leaving group?',opts:['F⁻','Cl⁻','Br⁻','I⁻'],correct:3,exp:'<strong>I⁻ is the best leaving group</strong>. The C–I bond is the longest and weakest. Iodide can stabilize its negative charge most effectively due to its large atomic size. Leaving group ability: I⁻ > Br⁻ > Cl⁻ > F⁻.'},
+];
+
+// ============ FLASHCARD LOGIC ============
+let cards = [...flashcards];
+let currentCard = 0;
+let flipped = false;
+let reviewed = new Set();
+let filter = 'all';
+
+function getCatStyle(cat) {
+  const styles = {
+    basics: 'cat-basics', mechanism: 'cat-mechanism',
+    stereo: 'cat-stereo', haloarene: 'cat-haloarene',
+    reasons: 'cat-reasons', reactions: 'cat-reactions'
+  };
+  const labels = {
+    basics:'BASICS', mechanism:'MECHANISM', stereo:'STEREOCHEM',
+    haloarene:'HALOARENE', reasons:'GIVE REASON', reactions:'REACTIONS'
+  };
+  return {cls: styles[cat] || '', label: labels[cat] || cat.toUpperCase()};
+}
+
+function renderCard() {
+  if(!cards.length) return;
+  const c = cards[currentCard];
+  const {cls, label} = getCatStyle(c.cat);
+  flipped = false;
+  document.getElementById('flashcard').classList.remove('flipped');
+
+  const fcCat = document.getElementById('fcCat');
+  const fcCatBack = document.getElementById('fcCatBack');
+  fcCat.className = 'fc-category ' + cls;
+  fcCat.textContent = label;
+  fcCatBack.className = 'fc-category ' + cls;
+  fcCatBack.textContent = label;
+
+  document.getElementById('fcQ').textContent = c.q;
+  document.getElementById('fcA').innerHTML = c.a;
+
+  updateProgress();
+}
+
+function flipCard() {
+  flipped = !flipped;
+  document.getElementById('flashcard').classList.toggle('flipped', flipped);
+}
+
+function nextCard() {
+  currentCard = (currentCard + 1) % cards.length;
+  renderCard();
+}
+
+function prevCard() {
+  currentCard = (currentCard - 1 + cards.length) % cards.length;
+  renderCard();
+}
+
+function markCard(correct) {
+  reviewed.add(currentCard);
+  if(correct) {
+    document.getElementById('flashcard').style.border = '2px solid var(--green)';
+    setTimeout(()=>{ document.getElementById('flashcard').style.border=''; nextCard(); }, 500);
+  } else {
+    document.getElementById('flashcard').style.border = '2px solid var(--red)';
+    setTimeout(()=>{ document.getElementById('flashcard').style.border=''; nextCard(); }, 500);
+  }
+  updateProgress();
+}
+
+function updateProgress() {
+  const pct = cards.length ? Math.round((reviewed.size/cards.length)*100) : 0;
+  document.getElementById('fcProgress').style.width = pct + '%';
+  document.getElementById('fcCounter').textContent = `${reviewed.size} / ${cards.length}`;
+  document.getElementById('pctText').textContent = pct + '%';
+  const circumference = 175.9;
+  const offset = circumference - (pct/100)*circumference;
+  document.getElementById('ringCircle').style.strokeDashoffset = offset;
+}
+
+function filterCards(f, btn) {
+  filter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if(f === 'all') cards = [...flashcards];
+  else cards = flashcards.filter(c => c.cat === f);
+  currentCard = 0;
+  reviewed = new Set();
+  renderCard();
+  updateProgress();
+}
+
+function shuffleCards() {
+  for(let i = cards.length-1; i>0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [cards[i],cards[j]] = [cards[j],cards[i]];
+  }
+  currentCard = 0;
+  reviewed = new Set();
+  renderCard();
+}
+
+function resetProgress() {
+  reviewed = new Set();
+  currentCard = 0;
+  renderCard();
+  updateProgress();
+}
+
+// ============ QUIZ LOGIC ============
+let quizCards = [];
+let currentQ = 0;
+let score = 0;
+let answered = false;
+
+function startQuiz() {
+  quizCards = [...quizData].sort(()=>Math.random()-0.5);
+  currentQ = 0; score = 0; answered = false;
+  document.getElementById('quizScore').textContent = '0';
+  document.getElementById('quizTotal').textContent = '0';
+  document.getElementById('quizMax').textContent = quizCards.length;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  if(currentQ >= quizCards.length) { showScoreModal(); return; }
+  const q = quizCards[currentQ];
+  answered = false;
+  document.getElementById('quizNum').textContent = currentQ+1;
+  document.getElementById('quizQ').textContent = q.q;
+  document.getElementById('quizExp').className = 'quiz-explanation';
+  document.getElementById('quizNext').disabled = true;
+
+  const optsEl = document.getElementById('quizOpts');
+  optsEl.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(i, q.correct, q.exp);
+    optsEl.appendChild(btn);
+  });
+}
+
+function selectAnswer(selected, correct, exp) {
+  if(answered) return;
+  answered = true;
+  const opts = document.querySelectorAll('.quiz-option');
+  opts.forEach((btn, i) => {
+    btn.disabled = true;
+    if(i === correct) btn.classList.add('correct');
+    else if(i === selected) btn.classList.add('wrong');
+  });
+  if(selected === correct) {
+    score++;
+    document.getElementById('quizScore').textContent = score;
+  }
+  document.getElementById('quizTotal').textContent = currentQ+1;
+  const expEl = document.getElementById('quizExp');
+  expEl.innerHTML = '<strong>💡 Explanation:</strong> ' + exp;
+  expEl.className = 'quiz-explanation show';
+  document.getElementById('quizNext').disabled = false;
+}
+
+function nextQuestion() {
+  currentQ++;
+  renderQuestion();
+}
+
+function showScoreModal() {
+  const pct = Math.round((score/quizCards.length)*100);
+  document.getElementById('modalScore').textContent = score+'/'+quizCards.length;
+  let msg;
+  if(pct>=80) msg = '🔥 Excellent! You\'re viva-ready!';
+  else if(pct>=60) msg = '👍 Good! Review the missed concepts.';
+  else msg = '📚 Keep studying — use the flashcards for weak areas!';
+  document.getElementById('modalMsg').textContent = msg;
+  document.getElementById('scoreModal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('scoreModal').classList.remove('show');
+  startQuiz();
+}
+
+// ============ GIVE REASONS DATA ============
+const reasons = [
+  {n:'01',q:'Why is thionyl chloride (SOCl₂) the preferred reagent for making alkyl chlorides from alcohols?',a:'When SOCl₂ reacts with an alcohol, the byproducts are <strong>SO₂ (gas)</strong> and <strong>HCl (gas)</strong>. Both escape from the reaction mixture, leaving behind a <strong>pure alkyl chloride</strong> without any further purification steps. Other reagents (PCl₃, PCl₅) leave phosphorus-containing byproducts that are difficult to separate.'},
+  {n:'02',q:'Why are haloalkanes only slightly soluble in water despite being polar molecules?',a:'To dissolve in water, haloalkanes must break the <strong>strong hydrogen bonds</strong> between water molecules. The energy released by forming new <strong>dipole-dipole interactions</strong> between haloalkane and water is not sufficient to overcome the energy cost of disrupting these H-bonds. Hence they remain insoluble.'},
+  {n:'03',q:'Why do branched haloalkanes have lower boiling points than their straight-chain isomers?',a:'Branching makes the molecule more <strong>spherical (compact)</strong>, which reduces the <strong>surface area</strong> available for intermolecular contact. Smaller surface area → <strong>weaker Van der Waals (London dispersion) forces</strong> → less energy needed to vaporize → <strong>lower boiling point</strong>.'},
+  {n:'04',q:'Why does p-dichlorobenzene have a higher melting point than the ortho- and meta- isomers?',a:'The <strong>para-isomer is highly symmetrical</strong>. This symmetry allows it to fit more efficiently into a <strong>crystal lattice</strong>, creating stronger and more extensive intermolecular packing forces (higher lattice energy). A higher melting point is needed to disrupt this well-ordered crystal structure. Ortho and meta isomers are less symmetrical → poorer crystal packing → lower MP.'},
+  {n:'05',q:'Why must Grignard reagents (RMgX) be prepared under strictly anhydrous conditions?',a:'Grignard reagents are <strong>extremely reactive</strong>. Even trace moisture destroys them immediately:<br><div class="formula-block">RMgX + H₂O → R–H + Mg(OH)X</div>The water acts as an acid and protonates the Grignard reagent, producing a simple alkane. The reactive organometallic is lost and cannot be recovered.'},
+  {n:'06',q:'Why do haloarenes resist nucleophilic substitution (3 reasons)?',a:'<strong>1. Resonance:</strong> Lone pairs on X participate in resonance with benzene ring → <strong>C–X bond has partial double bond character</strong> → very difficult to break.<br><br><strong>2. Hybridization:</strong> The sp² carbon bearing X is <strong>more electronegative</strong> than sp³ → holds C–X electrons more tightly.<br><br><strong>3. Phenyl cation:</strong> SN1 requires a stable carbocation. The <strong>phenyl cation is highly unstable</strong> → SN1 is completely ruled out.'},
+  {n:'07',q:'Why does KCN give cyanides while AgCN gives isocyanides with haloalkanes?',a:'<strong>KCN is ionic</strong> → releases free CN⁻ ions. The <strong>carbon end</strong> of CN⁻ (softer nucleophile) attacks R–X → forms <strong>cyanide (R–CN)</strong> (C–C bond).<br><br><strong>AgCN is covalent</strong> → silver is bonded to the carbon of CN. The <strong>nitrogen end</strong> becomes free to attack → forms <strong>isocyanide (R–NC)</strong>.<br><br>Same principle: KNO₂ → alkyl nitrite (O attacks); AgNO₂ → nitroalkane (N attacks).'},
+  {n:'08',q:'Why is iodination of benzene conducted in the presence of HNO₃ or HIO₄?',a:'The iodination reaction produces <strong>HI as a byproduct</strong>. HI is a <strong>strong reducing agent</strong> that immediately reverses the reaction, converting iodine back. Adding an <strong>oxidizing agent (HNO₃ or HIO₄)</strong> consumes the HI by oxidizing it to I₂, preventing the reverse reaction and <strong>driving equilibrium forward</strong> toward the iodinated product.'},
+  {n:'09',q:'Why does cyclohexyl chloride have a higher dipole moment than chlorobenzene?',a:'In <strong>chlorobenzene</strong>: C–Cl is on an sp² carbon (more electronegative → reduced polarity). The <strong>+R effect</strong> of Cl back-donates lone pairs into the ring, partially cancelling the bond dipole. The bond also has partial double bond character (shorter).<br><br>In <strong>cyclohexyl chloride</strong>: C–Cl is on a normal sp³ carbon with a full, uncancelled dipole. ∴ cyclohexyl chloride has a <strong>larger dipole moment</strong>.'},
+  {n:'10',q:'Why does aqueous KOH give alcohols but alcoholic KOH gives alkenes from haloalkanes?',a:'<strong>Aqueous KOH</strong> → provides <strong>OH⁻ ions</strong> (good nucleophile) → attacks carbon bearing X → <strong>nucleophilic substitution → alcohol</strong>.<br><br><strong>Alcoholic KOH</strong> → dominant species is <strong>alkoxide (RO⁻)</strong>, a much stronger base than OH⁻ → abstracts the β-hydrogen → <strong>elimination → alkene</strong>.<br><br>Nucleophile → substitution; Strong base → elimination.'},
+  {n:'11',q:'Why is chloroform kept in dark-colored, airtight bottles?',a:'In presence of <strong>air (O₂) and light</strong>, chloroform oxidizes to form:<br><div class="formula-block">2CHCl₃ + O₂ → 2COCl₂ + 2HCl</div><strong>Phosgene (COCl₂)</strong> is a <strong>highly poisonous gas</strong> (used as a chemical weapon). Dark bottles block light. Airtight containers prevent O₂ exposure. A small amount of <strong>ethanol</strong> is added as a stabilizer to neutralize any phosgene that forms.'},
+  {n:'12',q:'Why is H₃PO₄ used (not H₂SO₄) when making alkyl iodides from alcohols with KI?',a:'The alcohol reacts with HI (generated from KI + acid) to give R–I. If <strong>H₂SO₄</strong> is used, being a <strong>strong oxidizing acid</strong>, it immediately oxidizes HI → I₂ before HI can react with the alcohol. No product forms.<br><br><strong>H₃PO₄ is a non-oxidizing acid</strong> → safely generates HI without destroying it → good yield of alkyl iodide.'},
+];
+
+function buildReasons() {
+  const el = document.getElementById('reasonsList');
+  reasons.forEach((r,i) => {
+    const item = document.createElement('div');
+    item.className = 'reason-item';
+    item.innerHTML = `
+      <div class="reason-header" onclick="toggleReason(this)">
+        <span class="reason-num">${r.n}</span>
+        <span class="reason-q">${r.q}</span>
+        <span class="reason-toggle">▼</span>
+      </div>
+      <div class="reason-answer">
+        <div style="padding-top:0.75rem">${r.a}</div>
+      </div>`;
+    el.appendChild(item);
+  });
+}
+
+function toggleReason(header) {
+  const item = header.parentElement;
+  const ans = item.querySelector('.reason-answer');
+  const isOpen = item.classList.contains('open');
+  item.classList.toggle('open', !isOpen);
+  if(!isOpen) ans.classList.add('show');
+  else ans.classList.remove('show');
+}
+
+// ============ SCROLL REVEAL ============
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ============ NAV HIGHLIGHT ============
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-tabs a');
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const link = document.querySelector(`.nav-tabs a[href="#${e.target.id}"]`);
+      if(link) link.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => scrollObserver.observe(s));
+
+// ============ KEYBOARD ============
+document.addEventListener('keydown', e => {
+  if(e.code==='Space' && document.activeElement.tagName!=='INPUT' && document.activeElement.tagName!=='TEXTAREA') {
+    e.preventDefault(); flipCard();
+  }
+  if(e.code==='ArrowRight') nextCard();
+  if(e.code==='ArrowLeft') prevCard();
+});
+
+// ============ INIT ============
+buildReasons();
+renderCard();
+startQuiz();
+
+// Stagger reveal
+document.querySelectorAll('.concept-card, .reaction-card, .stereo-card').forEach((el,i) => {
+  el.style.transitionDelay = (i * 0.06) + 's';
+});
+</script>
+</body>
+</html>
